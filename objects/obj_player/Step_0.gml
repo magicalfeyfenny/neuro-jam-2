@@ -2,36 +2,47 @@
 var col = [obj_par_solid];
 
 //horizontal player movement
-var move = input_check("right") - input_check("left");
 
-if move != 0 {
-    hsp = approach(hsp,walksp*move,accel);
+
+if climbing == false {
+    var move = input_check("right") - input_check("left");
+    
+    if move != 0 {
+        hsp = approach(hsp,walksp*move,accel);
+    } else {
+        hsp = approach(hsp,0,decel);
+    }
+    
+    if move != 0 { 
+        face_dir = move;    
+    }    
 } else {
-    hsp = approach(hsp,0,decel);
+    var move = input_check("down") - input_check("up");
+    
+    if move != 0 {
+        vsp = approach(vsp,climbsp*move,accel);
+    } else {
+        vsp = approach(vsp,0,decel);
+    }
 }
-
-if move != 0 { 
-    face_dir = move;    
-}    
-
 
 //whether or not player is touching ground, should always be a boolean
 onground = place_meeting(x,y+1,col);
 
-var wallgrabdistance = 2;
+var wallgrabdistance = 1;
 
 //detect what wall the player is touching and detect whether or not player is sliding down the wall
-if !onground {
+
     if place_meeting(x+wallgrabdistance,y,col) && face_dir == 1 {
         touching_wall = 1;
-        if input_check("right") && vsp > 0 {
+        if input_check("right") && vsp > 0 && !onground {
             sliding = 1;
         } else {
             sliding = 0;
         }
     } else if place_meeting(x-wallgrabdistance,y,col) && face_dir == -1 {
         touching_wall = -1; 
-        if input_check("left") && vsp > 0 {
+        if input_check("left") && vsp > 0  && !onground {
             sliding = -1;
         } else {
             sliding = 0;
@@ -40,14 +51,30 @@ if !onground {
         touching_wall = 0;
         sliding = 0;
     }
+
+
+if touching_wall != 0 && input_check("climb") && stamina > 0 {
+    climbing = true;
+    face_dir = touching_wall;
+    mantle = true;
 } else {
-    touching_wall = 0;
-    sliding = 0;
+    climbing = false;
+}
+
+if !onground && input_check("climb") && touching_wall == 0 {
+    if place_meeting(x+(face_dir*2),y+3,col) {
+        if mantle && vsp < 0 {
+            var mantle_dist = 3.5;
+            hsp += face_dir*mantle_dist;
+            mantle = false;
+        }    
+    } 
 }
 
 //gives the player a short time window to jump after leaving the ground
 if onground {
     jumpbuffer = jumpbuffermax;	
+    mantle = true;
 } else {
     jumpbuffer--;	
 }
@@ -65,9 +92,9 @@ if input_check_pressed("jump") {
     initiate_jump = true;
 }
 
-if touching_wall == 0 {
+if touching_wall == 0 || onground {
     //normal jumping
-    if initiate_jump == true && jumpbuffer > 0 && jumpcount < jumpmax {
+    if initiate_jump == true && jumpcount < jumpmax {
         jumpcount++;
         jumptimer = jumpframes;
         if vsp != 0 {	
@@ -103,13 +130,15 @@ if jumptimer > 0 {
 }
 
 
-vsp += grv;
-
-var slide_transition_spd = 0.1;
-
-if sliding != 0 {
-    vsp = lerp(vsp,vsp*slide_multiplier,slide_transition_spd);
-}
+if climbing == false {
+    vsp += grv;
+    
+    var slide_transition_spd = 0.1;
+    
+    if sliding != 0 {
+        vsp = lerp(vsp,vsp*slide_multiplier,slide_transition_spd);
+    }
+}   
 
 //player collisions
 if place_meeting(x+hsp, y, col) {

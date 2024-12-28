@@ -10,5 +10,8 @@ if global.debug {
         draw_text(8,152,"jump_buffer : " + string(obj_player.jumpbuffer));
         draw_text(8,176,"touching_wall : " + string(obj_player.touching_wall));
         draw_text(8,200,"player state : " + string(global.player_state));
+        draw_text(8,224,"climbing : " + string(obj_player.climbing));
+        draw_text(8,248,"onground : " + string(obj_player.onground));
+        draw_text(8,272,"face_dir : " + string(obj_player.face_dir));
     }
 }

@@ -30,7 +30,7 @@ jumpbuffermax = 6;
 jumpbuffer = jumpbuffermax;
 
 initiate_jump = false;
-jump_input_timer_max = 6;
+jump_input_timer_max = 10;
 jump_input_timer = jump_input_timer_max;
 
 onground = true;
@@ -46,3 +46,6 @@ sliding = 0;
 //climbing variables
 climbing = false;
 stamina = 100;
+climbspmax = 1.5;
+climbsp = climbspmax;
+mantle = true;
