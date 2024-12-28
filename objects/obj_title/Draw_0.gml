@@ -57,7 +57,59 @@ switch ( title_state ) {
                 title_alpha = ( 1 - title_alpha );
             }
         }
-        
+        draw_set_alpha(title_alpha / 2);
+        draw_roundrect_color( 30, 30, 610, 330, c_black, c_black, false );     //change how these look later
+        draw_set_alpha(1);
+        draw_text_color( 50, 50, "Load data", c_white, c_white, c_white, c_white, title_alpha );
+        var loc_str = "";
+        var loc = data.game.save_point;
+        switch( loc ) {
+            case 0: {   //default starting position
+                loc_str = "New game";
+                break;
+            }
+            default: { 
+                loc_str = "A mysterious place . . .";
+                break;
+            }
+        }
+        var time_hours = string(floor(data.game.time / (60*60*game_get_speed(gamespeed_fps))));
+        var time_minutes = string(floor(data.game.time / (60*game_get_speed(gamespeed_fps))));
+        var time_seconds = string(floor(data.game.time / game_get_speed(gamespeed_fps) ));
+        if (string_length(time_hours) == 1) {
+            time_hours = "0" + time_hours;
+        }
+        if (string_length(time_minutes) == 1) {
+            time_minutes = "0" + time_minutes;
+        } 
+        if (string_length(time_seconds) == 1) {
+            time_seconds = "0" + time_seconds;
+        }
+        draw_text( 70, 80, "Location: " + loc_str );
+        draw_text( 70, 100, "Time: " + time_hours + ":" + time_minutes + ":" + time_seconds );
+        break;
+    }
+    case title_newgame: {
+        draw_sprite_ext( spr_title_image, 0, 200, 100, 1, 1, 0, c_white, 1); 
+        var title_alpha;
+        if ( title_anim == true ) {
+            title_alpha = 1 - (.05 * title_anim_timer);
+            if ( title_anim_reverse ) {
+                title_alpha = ( 1 - title_alpha );
+            }
+            //animate entering/leaving submenu
+        } else {
+            //display submenu
+            title_alpha = 1; 
+            if ( title_anim_reverse ) {
+                title_alpha = ( 1 - title_alpha );
+            }
+        }
+        draw_set_alpha(title_alpha / 2);
+        draw_roundrect_color( 30, 30, 610, 330, c_black, c_black, false );     //change how these look later
+        draw_set_alpha(1);
+        draw_text_color( 50, 50, "New game", c_white, c_white, c_white, c_white, title_alpha );
+        draw_text_color( 70, 80, "Start a new file", c_white, c_white, c_white, c_white, title_alpha );
         break;
     }
     case title_options: { 
@@ -87,7 +139,11 @@ switch ( title_state ) {
         draw_roundrect_color( 30, 30, 610, 330, c_black, c_black, false );     //change how these look later
         draw_set_alpha(1);
         draw_text_color( 50, 50, "Options", c_white, c_white, c_white, c_white, title_alpha );
-        draw_text_color( 70, 80, "Fullscreen: " + string(window_get_fullscreen), c_white, c_white, c_white, c_white, title_alpha );
+        var fullscreen_on = "off";
+        if ( temp_options.fullscreen == true ) {
+            fullscreen_on = "on";
+        }
+        draw_text_color( 70, 80, "Fullscreen: " + fullscreen_on, c_white, c_white, c_white, c_white, title_alpha );
         draw_text_color( 70, 250, "Defaults", c_white, c_white, c_white, c_white, title_alpha );
         draw_text_color( 70, 270, "Save changes", c_white, c_white, c_white, c_white, title_alpha );
         draw_text_color( 70, 290, "Discard changes", c_white, c_white, c_white, c_white, title_alpha );

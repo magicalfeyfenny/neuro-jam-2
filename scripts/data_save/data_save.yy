@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"data_save",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"data_save",
+  "parent":{
+    "name":"neuro-jam-2",
+    "path":"neuro-jam-2.yyp",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

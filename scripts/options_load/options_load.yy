@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"options_load",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"options_load",
+  "parent":{
+    "name":"neuro-jam-2",
+    "path":"neuro-jam-2.yyp",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -4,6 +4,7 @@ title_menu = 2;
 title_load = 3;
 title_options = 4;
 title_credits = 5;
+title_newgame = 6;
 
 title_state = title_init;
 title_anim = true;
@@ -23,4 +24,6 @@ title_menu_maxpos = 5;              //current options: new, load, options, credi
 title_load_maxpos = 0;
 title_options_maxpos = 4;           //1 test menu option, defaults, discard, save
 title_credits_maxpos = 0;
+title_newgame_maxpos = 0;
 
+temp_options = json_parse(json_stringify(data.options));
