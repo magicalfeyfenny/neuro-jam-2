@@ -8,8 +8,8 @@
   "name":"obj_title",
   "overriddenProperties":[],
   "parent":{
-    "name":"neuro-jam-2",
-    "path":"neuro-jam-2.yyp",
+    "name":"Game",
+    "path":"folders/Objects/Game.yy",
   },
   "parentObjectId":null,
   "persistent":false,
