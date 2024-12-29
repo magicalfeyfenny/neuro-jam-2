@@ -1,5 +1,4 @@
 interacted = false;
-set_positions = false;
 interacter = noone;
 
 hsp = 0;

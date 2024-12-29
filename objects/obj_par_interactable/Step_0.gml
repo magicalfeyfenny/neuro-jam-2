@@ -1,14 +1,16 @@
 if holdable {
     var player_y_offset = 48;
     var drone_y_offset = 16;
+    var spr_h = sprite_get_height(sprite_index);
     if interacted {
-        var setpositionspd = 0.3;
+        var setpositionspd_player = 0.3;
+        var setpositionspd_drone = 0.5;
             if interacter == obj_player {
-                x = lerp(x,interacter.x + interacter.hsp,setpositionspd);
-                y = lerp(y,(interacter.y - player_y_offset) + interacter.vsp,setpositionspd);
+                x = lerp(x,(obj_player.x + (obj_player.face_dir * 4) ) + obj_player.hsp,setpositionspd_player);
+                y = lerp(y,(obj_player.y - spr_h*1.6) + obj_player.vsp,setpositionspd_player);
             } else if interacter == obj_drone { 
-                x = lerp(x,interacter.x + interacter.hsp,setpositionspd);
-                y = lerp(y,(interacter.y + drone_y_offset) + interacter.vsp,setpositionspd);
+                x = lerp(x,obj_drone.x,setpositionspd_drone);
+                y = lerp(y,(obj_drone.y + spr_h/2),setpositionspd_drone);
             }
     }
 }
@@ -41,7 +43,7 @@ if player_exists() && instance_exists(obj_drone) {
     if global.player_state == playerstate.commanding {
         var inst = instance_position(mouse_x,mouse_y,obj_par_interactable)
         if inst != noone {
-            if interacted == false {
+            if interacter != obj_drone {
                 flashing = true;
             }    
             if input_check_pressed("interact") && obj_drone.drone_action_registered == false && obj_drone.holding_object == false    {
@@ -54,21 +56,5 @@ if player_exists() && instance_exists(obj_drone) {
         }
     } else {
         flashing = false; 
-    }
-}
-
-var flashspd = 0.05;
-
-
-
-if flash_state == 0{
-    flash_alpha = approach(flash_alpha,1,flashspd);
-    if flash_alpha == 1 {
-        flash_state = 1;
-    }
-} else if flash_state == 1 {
-    flash_alpha = approach(flash_alpha,0,flashspd);
-    if flash_alpha == 0 {
-        flash_state = 0;
     }
 }

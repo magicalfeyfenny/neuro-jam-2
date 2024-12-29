@@ -20,7 +20,7 @@ follow = true;
 followtarget = obj_player;
 followamt = 0.1;
 
-clamp_y = true;
+clamp_y = false;
 clamp_x = false;
 
 mouse_len = 0;

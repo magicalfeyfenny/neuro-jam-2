@@ -153,8 +153,8 @@ switch global.drone_state {
                     obj_player.vsp = 0;
                 } else if global.player_state == playerstate.flying {
                     global.player_state = playerstate.grounded;
-                    obj_player.sprite_index = spr_playertest;
-                    sprite_index = spr_dronetest;
+                    obj_player.sprite_index = spr_playerjump;
+                    sprite_index = spr_dronetest2;
                     obj_player.fly_transition = false;
                     obj_player.rotation = rotation;
                 }
@@ -170,8 +170,8 @@ switch global.drone_state {
                 obj_player.accel = 0.1;
                 obj_player.deccel = 0.1;
                 global.player_state = playerstate.grounded;
-                obj_player.sprite_index = spr_playertest;
-                sprite_index = spr_dronetest;
+                obj_player.sprite_index = spr_playerjump;
+                sprite_index = spr_dronetest2;
                 obj_player.fly_transition = false;
                 initiate_jump = false;
                 obj_player.x = x + (4*sign(hsp));
@@ -181,8 +181,8 @@ switch global.drone_state {
             
             if obj_player.stamina <= 0 {
                 global.player_state = playerstate.grounded;
-                obj_player.sprite_index = spr_playertest;
-                sprite_index = spr_dronetest;
+                obj_player.sprite_index = spr_playerjump;
+                sprite_index = spr_dronetest2;
                 obj_player.fly_transition = false;
                 obj_player.rotation = rotation;
             }
@@ -211,7 +211,7 @@ switch global.drone_state {
                         if move_to_target == false { 
                             x = lerp(x,inst.x,hover_spd_x);
                             y = lerp(y,inst.y - 32, hover_spd_y);    
-                        } else if inst.interacted == false && move_to_target == true {
+                        } else if inst.interacter != obj_drone && move_to_target == true {
                             inst.interacter = object_index;
                             holding_object = true;
                             instance_holding = inst;
@@ -220,6 +220,8 @@ switch global.drone_state {
                             move_to_target = false;
                             drone_target = noone;
                             drone_action_registered = false;
+                            obj_player.holding_object = false;
+                            obj_player.instance_holding = noone;
                         }
                         
                         if point_distance(x, y, inst.x, inst.y - 32) < 1.5 {

@@ -81,3 +81,5 @@ holding_object = false;
 instance_holding = noone;
 
 rotation = 0;
+
+landtimer = 0;
