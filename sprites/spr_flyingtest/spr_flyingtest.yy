@@ -1,10 +1,10 @@
 {
   "$GMSprite":"",
   "%Name":"spr_flyingtest",
-  "bboxMode":0,
+  "bboxMode":2,
   "bbox_bottom":41,
   "bbox_left":0,
-  "bbox_right":23,
+  "bbox_right":31,
   "bbox_top":0,
   "collisionKind":1,
   "collisionTolerance":0,
@@ -87,5 +87,5 @@
   },
   "type":0,
   "VTile":false,
-  "width":24,
+  "width":32,
 }

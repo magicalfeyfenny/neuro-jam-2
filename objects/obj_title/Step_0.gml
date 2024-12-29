@@ -95,6 +95,8 @@ if ( title_anim_timer <= 0 && title_anim = true ) { //animation ends for current
 }
 
 if ( title_input_allow ) {
+    var title_cursor_defaults = title_cursor_maxpos - 2; 
+    var title_cursor_saves = title_cursor_maxpos - 1;
     switch ( title_state ) {
         case title_start: {
             if ( input_check_pressed( [ all ] ) ) {
@@ -239,11 +241,11 @@ if ( title_input_allow ) {
                             temp_options.vsync = !temp_options.vsync;
                             break;
                         }
-                        case title_cursor_maxpos - 2: {       //defaults
+                        case title_cursor_defaults: {       //defaults
                             temp_options = json_parse(json_stringify(default_game_data.options));
                             break;   
                         }
-                        case title_cursor_maxpos - 1: {       //save
+                        case title_cursor_saves: {       //save
                             data.options = json_parse(json_stringify(temp_options));
                             data_save();
                             options_load();

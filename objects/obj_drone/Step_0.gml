@@ -26,7 +26,9 @@ switch global.drone_state {
         if holding_object {
             hover_spd_x = 0.025;
             hover_spd_y = 0.025;
+            depth = obj_player.depth + 1;
         } else {
+            depth = og_depth;
             hover_spd_x = 0.05;
             hover_spd_y = 0.05;
         }
@@ -270,8 +272,8 @@ if global.player_state == playerstate.commanding {
             instance_holding.set_positions = false;   
             holding_object = false;     
             move_to_target = false;
-            instance_holding.hsp = hsp;
-            instance_holding.vsp = vsp;
+            instance_holding.hsp = 0;
+            instance_holding.vsp = 0;
             instance_holding = noone;
         }    
     }

@@ -46,3 +46,5 @@ drone_action_registered = false;
 
 drone_target_x = 0;
 drone_target_y = 0;
+
+og_depth = depth;
