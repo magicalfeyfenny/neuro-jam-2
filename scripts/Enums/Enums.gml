@@ -7,6 +7,13 @@ enum camstate {
 enum playerstate {
     grounded,
     flying,
+    commanding,
     dead,
+    cutscene
+}
+
+enum dronestate {
+    hover,
+    execute_action,
     cutscene
 }
