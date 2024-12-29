@@ -32,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_dronetest",
-    "path":"sprites/spr_dronetest/spr_dronetest.yy",
+    "name":"spr_dronetest2",
+    "path":"sprites/spr_dronetest2/spr_dronetest2.yy",
   },
   "spriteMaskId":null,
   "visible":true,

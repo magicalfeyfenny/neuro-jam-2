@@ -26,7 +26,7 @@ switch global.player_state {
         //whether or not player is touching ground, should always be a boolean
         onground = place_meeting(x,y+1,global.col);
         
-        var wallgrabdistance = 1;
+        var wallgrabdistance = 4;
         
     if holding_object == false {
             //detect what wall the player is touching and detect whether or not player is sliding down the wall
@@ -68,6 +68,9 @@ switch global.player_state {
                 mantle = true;
                 regen_stamina = false;
                 stamina_drain = true;
+                while !place_meeting(x+face_dir,y,global.col) {
+                    x += face_dir;
+                }
             } else {
                 climbing = false;
             }
@@ -107,6 +110,7 @@ switch global.player_state {
         //jump system that includes variable jumping and a jump buffer to make movement smoother and more responsive
         if input_check_pressed("jump") {
             initiate_jump = true;
+            landtimer = 0;
         }
         
         
@@ -152,7 +156,7 @@ switch global.player_state {
         if climbing == false {
             vsp += grv;
             
-            var slide_transition_spd = 0.1;
+            var slide_transition_spd = 0.25;
             
             if sliding != 0 {
                 vsp = lerp(vsp,vsp*slide_multiplier,slide_transition_spd);
@@ -166,24 +170,28 @@ switch global.player_state {
                     instance_holding.interacted = false;
                     instance_holding.interacter = noone;   
                     instance_holding.set_positions = false;   
-                    holding_object = false;     
                     instance_holding.hsp = hsp;
                     instance_holding.vsp = vsp;
                     instance_holding = noone;
+                    holding_object = false;     
+                }
+            } else {
+                if place_meeting(x,y,obj_par_interactable) && onground && instance_holding == noone && holding_object == false { 
+                    var inst = instance_place(x,y,obj_par_interactable);
+                    if inst.holdable {
+                        if inst.interacted == false {
+                            inst.interacted = true;
+                            inst.interacter = object_index;  
+                            inst.hsp = 0;
+                            inst.vsp = 0;
+                            holding_object = true;              
+                            instance_holding = inst;       
+                        }
+                    }    
                 }
             }
             
-            if place_meeting(x,y,obj_par_interactable) && onground { 
-                var inst = instance_place(x,y,obj_par_interactable);
-                if inst.holdable {
-                    if inst.interacted == false {
-                        inst.interacted = true;
-                        inst.interacter = object_index;  
-                        holding_object = true;              
-                        instance_holding = inst;       
-                    }
-                }    
-            }
+
         }
     
         if input_check_pressed("command") {
@@ -229,7 +237,7 @@ switch global.player_state {
                     fly_transition = true;
                 }
             } else { 
-                obj_drone.sprite_index = spr_flyingtest;
+                obj_drone.sprite_index = spr_playerflying;
                 sprite_index = spr_blank;
                 x = obj_drone.x;
                 y = obj_drone.y + fly_y; 
@@ -247,7 +255,9 @@ switch global.player_state {
     break;
     
     case playerstate.commanding:
-
+    
+    onground = place_meeting(x,y+1,global.col);
+    
     stamina = approach(stamina,staminamax,stamina_recover_amt);
 
     if input_check_pressed("command") {
@@ -313,3 +323,34 @@ if border_flash_state == 0 && border_flash_state != 2{
 } else if border_flash_state == 2 {
     border_flash = approach(border_flash,0,borderflashspd);
 } 
+
+
+mask_index = spr_playertest;
+if !climbing {
+    if onground {
+        if sprite_index != spr_playerjump && landtimer > 6 {
+            if hsp != 0 {
+                sprite_index = spr_playerwalk;
+                image_speed = hsp/walkspmax;
+            } else if hsp == 0 {
+                sprite_index = spr_playeridle;
+                image_speed = 0;
+            }
+        } else {
+            sprite_index = spr_playerland;
+            landtimer++;
+        }
+    } else {
+        if sliding == 0 {
+            sprite_index = spr_playerjump; 
+            image_speed = 0;       
+        } else { 
+            sprite_index = spr_playerslide; 
+            image_speed = 0;   
+        }
+            
+    }
+} else {
+    sprite_index = spr_playerwallclimb;
+    image_speed = vsp/walkspmax;
+}
