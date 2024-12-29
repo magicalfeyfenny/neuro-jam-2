@@ -16,7 +16,6 @@
     {"$GMFolder":"","%Name":"Music","folderPath":"folders/Audio/Music.yy","name":"Music","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Sounds","folderPath":"folders/Audio/Sounds.yy","name":"Sounds","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Fonts","folderPath":"folders/Fonts.yy","name":"Fonts","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"Timelines","folderPath":"folders/Timelines.yy","name":"Timelines","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Objects","folderPath":"folders/Objects.yy","name":"Objects","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Environment","folderPath":"folders/Objects/Environment.yy","name":"Environment","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Interactables","folderPath":"folders/Objects/Environment/Interactables.yy","name":"Interactables","resourceType":"GMFolder","resourceVersion":"2.0",},
@@ -66,6 +65,7 @@
     {"$GMFolder":"","%Name":"Scripts","folderPath":"folders/Scripts.yy","name":"Scripts","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Shaders","folderPath":"folders/Shaders.yy","name":"Shaders","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Sprites","folderPath":"folders/Sprites.yy","name":"Sprites","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"Timelines","folderPath":"folders/Timelines.yy","name":"Timelines","resourceType":"GMFolder","resourceVersion":"2.0",},
   ],
   "IncludedFiles":[
     {"$GMIncludedFile":"","%Name":"controllerblacklist.csv","CopyToMask":-1,"filePath":"datafiles","name":"controllerblacklist.csv","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
@@ -77,7 +77,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.11.0.179",
+    "IDEVersion":"2024.1100.0.713",
   },
   "name":"neuro-jam-2",
   "resources":[
@@ -95,6 +95,7 @@
     {"id":{"name":"obj_neurogameapi","path":"objects/obj_neurogameapi/obj_neurogameapi.yy",},},
     {"id":{"name":"obj_par_interactable","path":"objects/obj_par_interactable/obj_par_interactable.yy",},},
     {"id":{"name":"obj_par_solid","path":"objects/obj_par_solid/obj_par_solid.yy",},},
+    {"id":{"name":"obj_pauser","path":"objects/obj_pauser/obj_pauser.yy",},},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},},
     {"id":{"name":"obj_savepoint","path":"objects/obj_savepoint/obj_savepoint.yy",},},
     {"id":{"name":"obj_testcrate","path":"objects/obj_testcrate/obj_testcrate.yy",},},
@@ -463,7 +464,6 @@
     {"id":{"name":"spr_commandborder","path":"sprites/spr_commandborder/spr_commandborder.yy",},},
     {"id":{"name":"spr_cursor","path":"sprites/spr_cursor/spr_cursor.yy",},},
     {"id":{"name":"spr_cutscene_collision","path":"sprites/spr_cutscene_collision/spr_cutscene_collision.yy",},},
-    {"id":{"name":"spr_dialogue_bg_test","path":"sprites/spr_dialogue_bg_test/spr_dialogue_bg_test.yy",},},
     {"id":{"name":"spr_dronetest","path":"sprites/spr_dronetest/spr_dronetest.yy",},},
     {"id":{"name":"spr_dronetest2","path":"sprites/spr_dronetest2/spr_dronetest2.yy",},},
     {"id":{"name":"spr_flyingtest","path":"sprites/spr_flyingtest/spr_flyingtest.yy",},},
