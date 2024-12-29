@@ -13,8 +13,8 @@
   "name":"obj_savepoint",
   "overriddenProperties":[],
   "parent":{
-    "name":"Environment",
-    "path":"folders/Objects/Environment.yy",
+    "name":"Interactables",
+    "path":"folders/Objects/Environment/Interactables.yy",
   },
   "parentObjectId":null,
   "persistent":false,

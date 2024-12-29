@@ -22,7 +22,7 @@ title_cursor_maxpos = 0;            //if maxpos is 0, no cursor or only 1 input,
 title_start_maxpos = 0;
 title_menu_maxpos = 5;              //current options: new, load, options, credits, exit
 title_load_maxpos = 0;
-title_options_maxpos = 5;           //1 test menu option, defaults, discard, save
+title_options_maxpos = 7;           //1 test menu option, defaults, discard, save
 title_credits_maxpos = 0;
 title_newgame_maxpos = 0;
 draw_fadeout = false;
@@ -35,6 +35,6 @@ if (file_exists( save_screen_name ) ) {
 
 temp_options = json_parse(json_stringify(data.options));
 
-audio_play_sound( mus_rotp, 0, true );
+audio_play_sound( mus_3, 0, true );
 
 draw_set_font( fn_menu );

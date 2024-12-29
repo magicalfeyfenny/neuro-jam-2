@@ -2,8 +2,8 @@
   "$GMSound":"",
   "%Name":"mus_rotp",
   "audioGroupId":{
-    "name":"audiogroup_default",
-    "path":"audiogroups/audiogroup_default",
+    "name":"audiogroup_music",
+    "path":"audiogroups/audiogroup_music",
   },
   "bitDepth":1,
   "bitRate":128,
@@ -12,8 +12,8 @@
   "duration":19.2,
   "name":"mus_rotp",
   "parent":{
-    "name":"Sounds",
-    "path":"folders/Sounds.yy",
+    "name":"Music",
+    "path":"folders/Audio/Music.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

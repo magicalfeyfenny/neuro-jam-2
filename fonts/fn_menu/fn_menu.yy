@@ -210,8 +210,8 @@
   "maintainGms1Font":false,
   "name":"fn_menu",
   "parent":{
-    "name":"neuro-jam-2",
-    "path":"neuro-jam-2.yyp",
+    "name":"Fonts",
+    "path":"folders/Fonts.yy",
   },
   "pointRounding":0,
   "ranges":[

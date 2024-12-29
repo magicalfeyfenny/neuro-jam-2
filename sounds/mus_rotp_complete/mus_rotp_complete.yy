@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"mus_rotp_complete",
+  "audioGroupId":{
+    "name":"audiogroup_music",
+    "path":"audiogroups/audiogroup_music",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":0,
+  "conversionMode":0,
+  "duration":38.4,
+  "name":"mus_rotp_complete",
+  "parent":{
+    "name":"Music",
+    "path":"folders/Audio/Music.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"mus_rotp_complete.ogg",
+  "type":0,
+  "volume":1.0,
+}

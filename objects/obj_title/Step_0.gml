@@ -228,10 +228,46 @@ if ( title_input_allow ) {
                     if ( title_cursor_pos > title_cursor_maxpos ) {
                         title_cursor_pos = 1;
                     }
+                } else if ( input_check( "left" ) ) {
+                    if ( title_cursor_pos == 3 || title_cursor_pos == 4 ) {
+                        audio_play_sound( snd_menu_move, 0, false );
+                        title_input_wait = true;
+                        title_input_timer = title_default_delay;
+                        if ( title_cursor_pos == 3 ) {
+                            temp_options.volume_music--;
+                            if (temp_options.volume_music < 0) {
+                                temp_options.volume_music = 0;
+                            }
+                        } else if ( title_cursor_pos == 4 ) {
+                            temp_options.volume_sound--;
+                            if (temp_options.volume_sound < 0) {
+                                temp_options.volume_sound = 0;
+                            }
+                        }
+                    }
+                } else if ( input_check( "right" ) ) {
+                    if ( title_cursor_pos == 3 || title_cursor_pos == 4 ) {
+                        audio_play_sound( snd_menu_move, 0, false );
+                        title_input_wait = true;
+                        title_input_timer = title_default_delay;
+                        if ( title_cursor_pos == 3 ) {
+                            temp_options.volume_music++;
+                            if (temp_options.volume_music > 10) {
+                                temp_options.volume_music = 10;
+                            }
+                        } else if ( title_cursor_pos == 4 ) {
+                            temp_options.volume_sound++;
+                            if (temp_options.volume_sound > 10) {
+                                temp_options.volume_sound = 10;
+                            }
+                        }
+                    } 
                 } else if ( input_check_pressed( [ "interact" ] ) ) {
                     audio_play_sound( snd_select, 0, false );
                     title_input_wait = true;
                     title_input_timer = title_default_delay;
+                    var title_cursor_defaults = title_cursor_maxpos - 2;
+                    var title_cursor_saves = title_cursor_maxpos - 1;
                     switch ( title_cursor_pos ) { //execute menu option
                         case 1: {       //fullscreen
                             temp_options.fullscreen = !temp_options.fullscreen;
