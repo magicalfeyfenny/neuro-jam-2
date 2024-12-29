@@ -12,12 +12,12 @@ data = {
         vsync : true,
     },
     save_points : {
-        rooms : [ rm_test ],
+        rooms : [ ],
         position : {
-            x : [ 400 ], 
-            y : [ 192 ],
+            x : [ ], 
+            y : [ ],
         },
-        names : [ "save 0" ],
+        names : [  ],
     },
 };
 

@@ -30,7 +30,7 @@ jumpbuffermax = 6;
 jumpbuffer = jumpbuffermax;
 
 initiate_jump = false;
-jump_input_timer_max = 10;
+jump_input_timer_max = 6;
 jump_input_timer = jump_input_timer_max;
 
 onground = true;
@@ -45,7 +45,39 @@ sliding = 0;
 
 //climbing variables
 climbing = false;
-stamina = 100;
 climbspmax = 1.5;
 climbsp = climbspmax;
 mantle = true;
+climb_accel = 0.5;
+climb_deccel = 0.5;
+
+//stamina variables
+staminamax = 100;
+stamina = staminamax;
+regen_stamina = true;
+stamina_drain = false;
+stamina_drain_amt = 0.5;
+stamina_recover_amt = 1.5;
+
+color_flash = 0;
+flash_state = 0;
+
+border_flash = 0;
+border_flashmin = 0.5;
+border_flash_state = 2;
+
+
+stamina_x = 0;
+stamina_y = 0;
+stamina_y_transmax = 8;
+stamina_y_trans = stamina_y_transmax;
+stamina_alpha = 0;
+
+stamina_surf = -1;
+
+fly_transition = false;
+
+holding_object = false;
+instance_holding = noone;
+
+rotation = 0;
