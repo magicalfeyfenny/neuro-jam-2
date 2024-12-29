@@ -11,17 +11,15 @@ switch ( title_state ) {
         if ( title_anim == true ) {
             //show title coming in
             title_alpha = 1 - (.05 * title_anim_timer);
-        } else {
-            //display 'press a key' or something with the title
-            draw_set_halign( fa_center );
-            draw_text(320, 250, "press a button");
-            draw_set_halign( fa_left );
         }
-        draw_sprite_ext( spr_title_image, 0, 200, 100, 1, 1, 0, c_white, title_alpha);
+        //display 'press a key' or something with the title
+        draw_sprite_ext( spr_title_image, 0, title_logo_x, title_logo_y, 1, 1, 0, c_white, title_alpha);
+        draw_set_halign( fa_center );
+        draw_text(320, 250, "press a button");
+        draw_set_halign( fa_left );
         break;
     }
     case title_menu: {
-        draw_sprite_ext( spr_title_image, 0, 200, 100, 1, 1, 0, c_white, 1);
         var title_alpha;
         if ( title_anim == true ) {
             title_alpha = 1 - (.05 * title_anim_timer);
@@ -29,22 +27,23 @@ switch ( title_state ) {
         } else {
             title_alpha = 1;
             //display menu as normal
-            if ( title_input_allow ) { 
-                draw_sprite( spr_title_cursor, 0, 475 - (title_cursor_pos * 5), 195 + (title_cursor_pos * 20) );
-            }
         }
         draw_set_alpha(title_alpha / 2);
-        draw_triangle_color( 650, -800, 650, 1200, 650 - (500 * title_alpha), 1200, c_black, c_black, c_black, false );
+        draw_triangle_color( 650, -440, 650, 840, 650 - (320 * title_alpha), 840, c_black, c_black, c_black, false );
         draw_set_alpha(1);
-        draw_text_color( 490, 205, "Continue", c_white, c_white, c_white, c_white, title_alpha );
-        draw_text_color( 485, 225, "New Game", c_white, c_white, c_white, c_white, title_alpha );
-        draw_text_color( 480, 245, "Options", c_white, c_white, c_white, c_white, title_alpha );
-        draw_text_color( 475, 265, "Credits", c_white, c_white, c_white, c_white, title_alpha );
-        draw_text_color( 470, 285, "Exit Game", c_white, c_white, c_white, c_white, title_alpha );
+        draw_text_color( 524, 206, "Continue", c_white, c_white, c_white, c_white, title_alpha );
+        draw_text_color( 518, 230, "New Game", c_white, c_white, c_white, c_white, title_alpha );
+        draw_text_color( 512, 254, "Options", c_white, c_white, c_white, c_white, title_alpha );
+        draw_text_color( 506, 278, "Credits", c_white, c_white, c_white, c_white, title_alpha );
+        draw_text_color( 500, 302, "Exit Game", c_white, c_white, c_white, c_white, title_alpha );
+        if ( title_input_allow && title_anim == false) { 
+            draw_sprite( spr_title_cursor, 0, 512 - (title_cursor_pos * 6), 192 + (title_cursor_pos * 24) );
+        } 
+        draw_sprite_ext( spr_title_image, 0, title_logo_x, title_logo_y, 1, 1, 0, c_white, 1);
         break;
     }
     case title_load: { 
-        draw_sprite_ext( spr_title_image, 0, 200, 100, 1, 1, 0, c_white, 1);
+        draw_sprite_ext( spr_title_image, 0, title_logo_x, title_logo_y, 1, 1, 0, c_white, 1);
         var title_alpha;
         if ( title_anim == true ) {
             title_alpha = 1 - (.05 * title_anim_timer);
@@ -87,7 +86,7 @@ switch ( title_state ) {
         break;
     }
     case title_newgame: {
-        draw_sprite_ext( spr_title_image, 0, 200, 100, 1, 1, 0, c_white, 1); 
+        draw_sprite_ext( spr_title_image, 0, title_logo_x, title_logo_y, 1, 1, 0, c_white, 1); 
         var title_alpha;
         if ( title_anim == true ) {
             title_alpha = 1 - (.05 * title_anim_timer);
@@ -110,7 +109,7 @@ switch ( title_state ) {
         break;
     }
     case title_options: { 
-        draw_sprite_ext( spr_title_image, 0, 200, 100, 1, 1, 0, c_white, 1);
+        draw_sprite_ext( spr_title_image, 0, title_logo_x, title_logo_y, 1, 1, 0, c_white, 1);
         var title_alpha;
         if ( title_anim == true ) {
             title_alpha = 1 - (.05 * title_anim_timer);
@@ -123,13 +122,6 @@ switch ( title_state ) {
             title_alpha = 1; 
             if ( title_anim_reverse ) {
                 title_alpha = ( 1 - title_alpha );
-            }
-            if ( title_input_allow ) { 
-                if (title_cursor_pos <= (title_cursor_maxpos - 3)) {
-                    draw_sprite( spr_title_cursor, 0, 50, 70 + (title_cursor_pos * 20) );
-                } else {
-                    draw_sprite( spr_title_cursor, 0, 50, 240 + ((title_cursor_pos - (title_cursor_maxpos - 3)) * 20) );
-                }
             }
         } 
         draw_set_alpha(title_alpha / 2);
@@ -153,10 +145,17 @@ switch ( title_state ) {
         draw_text_color( 70, 250, "Defaults", c_white, c_white, c_white, c_white, title_alpha );
         draw_text_color( 70, 270, "Save changes", c_white, c_white, c_white, c_white, title_alpha );
         draw_text_color( 70, 290, "Discard changes", c_white, c_white, c_white, c_white, title_alpha );
+        if ( title_input_allow && title_anim == false) { 
+            if (title_cursor_pos <= (title_cursor_maxpos - 3)) {
+                draw_sprite( spr_title_cursor, 0, 50, 70 + ( title_cursor_pos * 20 ) );
+            } else {
+                draw_sprite( spr_title_cursor, 0, 50, 240 + ( ( title_cursor_pos - ( title_cursor_maxpos - 3 ) ) * 20) );
+            }
+        }
         break;
     }
     case title_credits: {
-        draw_sprite_ext( spr_title_image, 0, 200, 100, 1, 1, 0, c_white, 1);
+        draw_sprite_ext( spr_title_image, 0, title_logo_x, title_logo_y, 1, 1, 0, c_white, 1);
         var title_alpha;
         if ( title_anim == true ) {
             title_alpha = 1 - (.05 * title_anim_timer);

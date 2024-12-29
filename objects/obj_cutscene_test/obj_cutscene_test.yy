@@ -36,5 +36,5 @@
     "path":"sprites/spr_cutscene_collision/spr_cutscene_collision.yy",
   },
   "spriteMaskId":null,
-  "visible":true,
+  "visible":false,
 }
