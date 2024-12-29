@@ -12,8 +12,8 @@
   "duration":1.941964,
   "name":"snd_select",
   "parent":{
-    "name":"neuro-jam-2",
-    "path":"neuro-jam-2.yyp",
+    "name":"Sounds",
+    "path":"folders/Sounds.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

@@ -5,13 +5,13 @@ if ( distance_to_object( obj_player ) < 50 ) {
 }
 
 if ( save_allowed ) {
-    if ( input_check_pressed( "action" ) ) {
+    if ( input_check_pressed( "interact" ) ) {
         save_attempting = true;
     }
 }
 
 if ( save_attempting ) {
-    if ( input_check_long_pressed( "action" ) ) {
+    if ( input_check_long_pressed( "interact" ) ) {
         //perform the save
         alarm[1] = 1;
     }

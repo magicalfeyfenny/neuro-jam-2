@@ -12,8 +12,8 @@
   "duration":1.714286,
   "name":"snd_cancel_2",
   "parent":{
-    "name":"neuro-jam-2",
-    "path":"neuro-jam-2.yyp",
+    "name":"Sounds",
+    "path":"folders/Sounds.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

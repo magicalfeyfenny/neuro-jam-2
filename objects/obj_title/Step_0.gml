@@ -97,7 +97,7 @@ if ( title_anim_timer <= 0 && title_anim = true ) { //animation ends for current
 if ( title_input_allow ) {
     switch ( title_state ) {
         case title_start: {
-            if ( input_check_pressed( ["accept", "cancel", "action", "special" ] ) ) {
+            if ( input_check_pressed( [ all ] ) ) {
                 title_state = title_menu;
                 title_anim = true;
                 title_anim_timer = title_timer_default;
@@ -123,7 +123,7 @@ if ( title_input_allow ) {
                     if ( title_cursor_pos > title_cursor_maxpos ) {
                         title_cursor_pos = 1;
                     }
-                } else if ( input_check_pressed( [ "accept", "action" ] ) ) {
+                } else if ( input_check_pressed( [ "interact" ] ) ) {
                     audio_play_sound( snd_select, 0, false );
                     title_input_wait = true;
                     title_input_timer = title_default_delay;
@@ -166,7 +166,7 @@ if ( title_input_allow ) {
                             break;
                         }
                     }
-                } else if ( input_check_pressed( "cancel" ) ) {
+                } else if ( input_check_pressed( "pause" ) ) {
                     audio_play_sound(snd_cancel_2, 0, false);
                     title_input_wait = true;
                     title_input_timer = title_default_delay;
@@ -177,12 +177,12 @@ if ( title_input_allow ) {
         }
         case title_load: {
             if (!title_input_wait) {
-                if ( input_check_pressed( [ "accept", "action" ] ) ) { 
+                if ( input_check_pressed( [ "interact" ] ) ) { 
                     audio_play_sound(snd_select, 0, false);
                     alarm[0] = title_fadeout_time;
                     title_input_allow = false;
                     draw_fadeout = true;
-                } else if ( input_check_pressed( "cancel" ) ) {
+                } else if ( input_check_pressed( "pause" ) ) {
                     audio_play_sound( snd_cancel_2, 0, false );
                     title_anim = true;
                     title_anim_reverse = true;
@@ -193,13 +193,13 @@ if ( title_input_allow ) {
         }
         case title_newgame: {
             if (!title_input_wait) {
-                if (input_check_pressed( [ "accept", "action" ] ) ) {
+                if (input_check_pressed( [ "interact" ] ) ) {
                     audio_play_sound(snd_select, 0, false);
                     data.game = default_game_data.game;
                     alarm[0] = title_fadeout_time;
                     draw_fadeout = true;
                     title_input_allow = false;
-                } else if ( input_check_pressed( "cancel" ) ) {
+                } else if ( input_check_pressed( "pause" ) ) {
                     audio_play_sound( snd_cancel_2, 0, false );
                     title_anim = true;
                     title_anim_reverse = true;
@@ -226,7 +226,7 @@ if ( title_input_allow ) {
                     if ( title_cursor_pos > title_cursor_maxpos ) {
                         title_cursor_pos = 1;
                     }
-                } else if ( input_check_pressed( [ "accept", "action" ] ) ) {
+                } else if ( input_check_pressed( [ "interact" ] ) ) {
                     audio_play_sound( snd_select, 0, false );
                     title_input_wait = true;
                     title_input_timer = title_default_delay;
@@ -265,7 +265,7 @@ if ( title_input_allow ) {
                             break;
                         }
                     }
-                } else if ( input_check_pressed( "cancel" ) ) {
+                } else if ( input_check_pressed( "pause" ) ) {
                     audio_play_sound( snd_cancel_2, 0, false );
                     title_input_wait = true;
                     title_input_timer = title_default_delay;
@@ -276,7 +276,7 @@ if ( title_input_allow ) {
         }
         case title_credits: {
             if (!title_input_wait) {
-                if ( input_check_pressed( [ "accept", "action", "cancel" ] )) {
+                if ( input_check_pressed( [ all ] )) {
                     audio_play_sound( snd_cancel_2, 0, false );
                     title_anim_reverse = true;
                     title_anim = true;

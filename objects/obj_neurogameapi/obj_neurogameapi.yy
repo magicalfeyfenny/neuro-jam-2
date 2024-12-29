@@ -11,7 +11,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"NeuroGameAPI",
-    "path":"folders/NeuroGameAPI.yy",
+    "path":"folders/Plugins/NeuroGameAPI.yy",
   },
   "parentObjectId":null,
   "persistent":true,

@@ -12,8 +12,8 @@
   "duration":19.2,
   "name":"mus_rotp",
   "parent":{
-    "name":"neuro-jam-2",
-    "path":"neuro-jam-2.yyp",
+    "name":"Sounds",
+    "path":"folders/Sounds.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
