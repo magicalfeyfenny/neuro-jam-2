@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"move_to_savepoint",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"move_to_savepoint",
+  "parent":{
+    "name":"neuro-jam-2",
+    "path":"neuro-jam-2.yyp",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

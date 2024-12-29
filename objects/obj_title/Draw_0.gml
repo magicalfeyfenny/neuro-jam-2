@@ -13,7 +13,9 @@ switch ( title_state ) {
             title_alpha = 1 - (.05 * title_anim_timer);
         } else {
             //display 'press a key' or something with the title
-            draw_text(300, 300, "press a button");
+            draw_set_halign( fa_center );
+            draw_text(320, 250, "press a button");
+            draw_set_halign( fa_left );
         }
         draw_sprite_ext( spr_title_image, 0, 200, 100, 1, 1, 0, c_white, title_alpha);
         break;
@@ -28,17 +30,17 @@ switch ( title_state ) {
             title_alpha = 1;
             //display menu as normal
             if ( title_input_allow ) { 
-                draw_sprite( spr_title_cursor, 0, 280, 5 + (title_cursor_pos * 20) );
+                draw_sprite( spr_title_cursor, 0, 475 - (title_cursor_pos * 5), 195 + (title_cursor_pos * 20) );
             }
         }
         draw_set_alpha(title_alpha / 2);
-        draw_rectangle_color( 250, 10, 1000, 1000, c_black, c_black, c_black, c_black, false );     //change how these look later
+        draw_triangle_color( 650, -800, 650, 1200, 650 - (500 * title_alpha), 1200, c_black, c_black, c_black, false );
         draw_set_alpha(1);
-        draw_text_color( 300, 15, "continue", c_white, c_white, c_white, c_white, title_alpha );
-        draw_text_color( 300, 35, "new game", c_white, c_white, c_white, c_white, title_alpha );
-        draw_text_color( 300, 55, "options", c_white, c_white, c_white, c_white, title_alpha );
-        draw_text_color( 300, 75, "credits", c_white, c_white, c_white, c_white, title_alpha );
-        draw_text_color( 300, 95, "exit game", c_white, c_white, c_white, c_white, title_alpha );
+        draw_text_color( 490, 205, "Continue", c_white, c_white, c_white, c_white, title_alpha );
+        draw_text_color( 485, 225, "New Game", c_white, c_white, c_white, c_white, title_alpha );
+        draw_text_color( 480, 245, "Options", c_white, c_white, c_white, c_white, title_alpha );
+        draw_text_color( 475, 265, "Credits", c_white, c_white, c_white, c_white, title_alpha );
+        draw_text_color( 470, 285, "Exit Game", c_white, c_white, c_white, c_white, title_alpha );
         break;
     }
     case title_load: { 
@@ -58,21 +60,12 @@ switch ( title_state ) {
             }
         }
         draw_set_alpha(title_alpha / 2);
-        draw_roundrect_color( 30, 30, 610, 330, c_black, c_black, false );     //change how these look later
+        draw_roundrect_color( 30, 30, 610, 330, c_black, c_black, false );     //change how these look later 
         draw_set_alpha(1);
+        draw_sprite_stretched_ext( load_sprite, 0, 160, 120, 320, 180, c_white, title_alpha );
         draw_text_color( 50, 50, "Load data", c_white, c_white, c_white, c_white, title_alpha );
-        var loc_str = "";
         var loc = data.game.save_point;
-        switch( loc ) {
-            case 0: {   //default starting position
-                loc_str = "New game";
-                break;
-            }
-            default: { 
-                loc_str = "A mysterious place . . .";
-                break;
-            }
-        }
+        var loc_str = save_points.names[loc];
         var time_hours = string(floor(data.game.time / (60*60*game_get_speed(gamespeed_fps))));
         var time_minutes = string(floor(data.game.time / (60*game_get_speed(gamespeed_fps))));
         var time_seconds = string(floor(data.game.time / game_get_speed(gamespeed_fps) ));
@@ -144,6 +137,11 @@ switch ( title_state ) {
             fullscreen_on = "on";
         }
         draw_text_color( 70, 80, "Fullscreen: " + fullscreen_on, c_white, c_white, c_white, c_white, title_alpha );
+        var vsync_on = "off";
+        if ( temp_options.vsync == true ) {
+            vsync_on = "on";
+        }
+        draw_text_color( 70, 100, "VSync: " + vsync_on, c_white, c_white, c_white, c_white, title_alpha);
         draw_text_color( 70, 250, "Defaults", c_white, c_white, c_white, c_white, title_alpha );
         draw_text_color( 70, 270, "Save changes", c_white, c_white, c_white, c_white, title_alpha );
         draw_text_color( 70, 290, "Discard changes", c_white, c_white, c_white, c_white, title_alpha );
@@ -180,4 +178,12 @@ switch ( title_state ) {
         draw_text_color( 90, 240, "asmn15", c_white, c_white, c_white, c_white, title_alpha );
         break;
     }
+}
+
+if (draw_fadeout) { 
+    var draw_alpha = 1 - (alarm_get(0) / title_fadeout_time)
+    draw_set_alpha( draw_alpha );
+    show_debug_message( draw_alpha );
+    draw_rectangle_color( -5, -5, 645, 365, c_black, c_black, c_black, c_black, false );
+    draw_set_alpha(1);
 }
