@@ -1,0 +1,1 @@
+move_to_savepoint( data.game.save_point , obj_player );

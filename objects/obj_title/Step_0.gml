@@ -101,14 +101,14 @@ if ( title_input_allow ) {
                 title_state = title_menu;
                 title_anim = true;
                 title_anim_timer = title_timer_default;
-                //add audio from pressing a button
+                audio_play_sound(snd_select, 0, false);
             }
             break;
         }
         case title_menu: {
             if ( !title_input_wait ) {
                 if ( input_check( "up" ) ) {
-                    //play "move cursor" sound
+                    audio_play_sound(snd_menu_move, 0, false);
                     title_input_wait = true;
                     title_input_timer = title_default_delay;
                     title_cursor_pos--;
@@ -116,7 +116,7 @@ if ( title_input_allow ) {
                         title_cursor_pos = title_cursor_maxpos;
                     }
                 } else if ( input_check( "down" ) ) {
-                    //play "move cursor" sound
+                    audio_play_sound(snd_menu_move, 0, false);
                     title_input_wait = true;
                     title_input_timer = title_default_delay;
                     title_cursor_pos++;
@@ -124,7 +124,7 @@ if ( title_input_allow ) {
                         title_cursor_pos = 1;
                     }
                 } else if ( input_check_pressed( [ "accept", "action" ] ) ) {
-                    //play "select" sound
+                    audio_play_sound( snd_select, 0, false );
                     title_input_wait = true;
                     title_input_timer = title_default_delay;
                     switch ( title_cursor_pos ) { //execute menu option
@@ -167,7 +167,7 @@ if ( title_input_allow ) {
                         }
                     }
                 } else if ( input_check_pressed( "cancel" ) ) {
-                    //play "cancel" sound
+                    audio_play_sound(snd_cancel_2, 0, false);
                     title_input_wait = true;
                     title_input_timer = title_default_delay;
                     title_cursor_pos = title_cursor_maxpos;
@@ -178,10 +178,12 @@ if ( title_input_allow ) {
         case title_load: {
             if (!title_input_wait) {
                 if ( input_check_pressed( [ "accept", "action" ] ) ) { 
-                    //play "select" sound 
-                    room_goto(rm_test);
+                    audio_play_sound(snd_select, 0, false);
+                    alarm[0] = title_fadeout_time;
+                    title_input_allow = false;
+                    draw_fadeout = true;
                 } else if ( input_check_pressed( "cancel" ) ) {
-                    //play "cancel" sound
+                    audio_play_sound( snd_cancel_2, 0, false );
                     title_anim = true;
                     title_anim_reverse = true;
                     title_anim_timer = title_timer_default;
@@ -192,11 +194,13 @@ if ( title_input_allow ) {
         case title_newgame: {
             if (!title_input_wait) {
                 if (input_check_pressed( [ "accept", "action" ] ) ) {
-                    //play "select" sound
+                    audio_play_sound(snd_select, 0, false);
                     data.game = default_game_data.game;
-                    room_goto(rm_test);
+                    alarm[0] = title_fadeout_time;
+                    draw_fadeout = true;
+                    title_input_allow = false;
                 } else if ( input_check_pressed( "cancel" ) ) {
-                    //play "cancel" sound
+                    audio_play_sound( snd_cancel_2, 0, false );
                     title_anim = true;
                     title_anim_reverse = true;
                     title_anim_timer = title_timer_default;
@@ -207,7 +211,7 @@ if ( title_input_allow ) {
         case title_options: {
             if (!title_input_wait) {
                 if ( input_check( "up" ) ) {
-                    //play "move cursor" sound
+                    audio_play_sound( snd_menu_move, 0, false );
                     title_input_wait = true;
                     title_input_timer = title_default_delay;
                     title_cursor_pos--;
@@ -215,7 +219,7 @@ if ( title_input_allow ) {
                         title_cursor_pos = title_cursor_maxpos;
                     }
                 } else if ( input_check( "down" ) ) {
-                    //play "move cursor" sound
+                    audio_play_sound( snd_menu_move, 0, false );
                     title_input_wait = true;
                     title_input_timer = title_default_delay;
                     title_cursor_pos++;
@@ -223,7 +227,7 @@ if ( title_input_allow ) {
                         title_cursor_pos = 1;
                     }
                 } else if ( input_check_pressed( [ "accept", "action" ] ) ) {
-                    //play "select" sound
+                    audio_play_sound( snd_select, 0, false );
                     title_input_wait = true;
                     title_input_timer = title_default_delay;
                     switch ( title_cursor_pos ) { //execute menu option
@@ -231,11 +235,15 @@ if ( title_input_allow ) {
                             temp_options.fullscreen = !temp_options.fullscreen;
                             break;   
                         }
-                        case 2: {       //defaults
+                        case 2: {
+                            temp_options.vsync = !temp_options.vsync;
+                            break;
+                        }
+                        case title_cursor_maxpos - 2: {       //defaults
                             temp_options = json_parse(json_stringify(default_game_data.options));
                             break;   
                         }
-                        case 3: {       //save
+                        case title_cursor_maxpos - 1: {       //save
                             data.options = json_parse(json_stringify(temp_options));
                             data_save();
                             options_load();
@@ -245,7 +253,7 @@ if ( title_input_allow ) {
                             title_anim_reverse = true;
                             break;
                         }
-                        case 4: {       //discard
+                        case title_cursor_maxpos: {       //discard
                             options_load();
                             title_anim = true;
                             title_state = title_options;
@@ -258,7 +266,7 @@ if ( title_input_allow ) {
                         }
                     }
                 } else if ( input_check_pressed( "cancel" ) ) {
-                    //play "cancel" sound
+                    audio_play_sound( snd_cancel_2, 0, false );
                     title_input_wait = true;
                     title_input_timer = title_default_delay;
                     title_cursor_pos = title_cursor_maxpos;
@@ -269,7 +277,7 @@ if ( title_input_allow ) {
         case title_credits: {
             if (!title_input_wait) {
                 if ( input_check_pressed( [ "accept", "action", "cancel" ] )) {
-                    //play "cancel" sound
+                    audio_play_sound( snd_cancel_2, 0, false );
                     title_anim_reverse = true;
                     title_anim = true;
                     title_anim_timer = title_timer_default;
