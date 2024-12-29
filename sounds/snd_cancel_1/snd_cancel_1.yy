@@ -2,8 +2,8 @@
   "$GMSound":"",
   "%Name":"snd_cancel_1",
   "audioGroupId":{
-    "name":"audiogroup_default",
-    "path":"audiogroups/audiogroup_default",
+    "name":"audiogroup_sounds",
+    "path":"audiogroups/audiogroup_sounds",
   },
   "bitDepth":1,
   "bitRate":128,
@@ -13,7 +13,7 @@
   "name":"snd_cancel_1",
   "parent":{
     "name":"Sounds",
-    "path":"folders/Sounds.yy",
+    "path":"folders/Audio/Sounds.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

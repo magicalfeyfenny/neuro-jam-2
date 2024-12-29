@@ -146,6 +146,10 @@ switch ( title_state ) {
             vsync_on = "on";
         }
         draw_text_color( 70, 100, "VSync: " + vsync_on, c_white, c_white, c_white, c_white, title_alpha);
+        var music_vol = string(temp_options.volume_music);
+        draw_text_color( 70, 120, "Music volume: " + music_vol, c_white, c_white, c_white, c_white, title_alpha );
+        var sound_vol = string(temp_options.volume_sound);
+        draw_text_color( 70, 140, "Sound volume: " + sound_vol, c_white, c_white, c_white, c_white, title_alpha );
         draw_text_color( 70, 250, "Defaults", c_white, c_white, c_white, c_white, title_alpha );
         draw_text_color( 70, 270, "Save changes", c_white, c_white, c_white, c_white, title_alpha );
         draw_text_color( 70, 290, "Discard changes", c_white, c_white, c_white, c_white, title_alpha );
