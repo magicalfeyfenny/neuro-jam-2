@@ -21,3 +21,5 @@ bg_anim_timer = -1;
 actor_name = "";
 
 audio_play = false;
+
+confirm_input = "interact";

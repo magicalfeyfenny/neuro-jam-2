@@ -7,6 +7,7 @@ function dialogue_load() {
     enum SCENES {
         NO_SCENE = -1,
         TEST_SCENE = 0,
+        DRONE = 1,
     }
     enum DISPLAY {
         ADV = 0,
@@ -38,7 +39,23 @@ function dialogue_load() {
                 mus : mus_11,
                 audio : -1,
             } ],
-        } ],
+        },
+        {
+                  scene_name : "dronetest",
+                  //individual frames of a scene are structs in the array 'frames' within the scene array
+                  frames : [ {   
+                      name : "Neuro?",
+                      sprite : [],
+                      sprite_pos_x : [],
+                      sprite_pos_y : [],
+                      display : DISPLAY.ADV,
+                      text :  "Don't worry, silly!\n" + 
+                              "We're much too cute to be in danger!",
+                      bg : -1,
+                      mus : -1,
+                      audio : -1,
+                  } ],
+        }],
     }
     globalvar cutscene_mode;
     cutscene_mode = false;

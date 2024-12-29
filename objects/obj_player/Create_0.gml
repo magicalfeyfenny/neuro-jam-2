@@ -14,8 +14,7 @@ walksp = walkspmax;
 accel = 0.25;
 decel = 0.25;
 
-//player state
-global.player_state = playerstate.grounded;
+
 
 //jumping variables
 jumpmax = 1;
@@ -83,3 +82,14 @@ instance_holding = noone;
 rotation = 0;
 
 landtimer = 0;
+
+cutscene_move = 0;
+
+//player state
+if room == rm_level1 {
+    global.player_state = playerstate.cutscene;
+    cutscene_move = 1;
+} else {
+    global.player_state = playerstate.grounded;
+}
+    

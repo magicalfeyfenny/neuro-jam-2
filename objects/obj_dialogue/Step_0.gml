@@ -33,9 +33,9 @@ if ( dialogue_mode ) {
                 spewlength++;
             }
             textlinefadein++;
-            if ( input_check_pressed( "command" ) ) {
+            if ( input_check_pressed( confirm_input ) ) {
                 textlinefadein = 1000;
-                input_clear_momentary( "command" );
+                input_clear_momentary( confirm_input);
             }
             if ( textlinefadein >= 60 + (90 * textlinecount) ) {
                 text_advance_ready = TEXT.READY;
@@ -45,9 +45,9 @@ if ( dialogue_mode ) {
         if ( frame.display == DISPLAY.ADV ) {
             textspew += string_char_at(frame.text, spewlength);
             spewlength++;
-            if ( input_check_pressed( "command" ) ) {
+            if ( input_check_pressed( confirm_input ) ) {
                 textspew = frame.text;
-                input_clear_momentary( "command" );
+                input_clear_momentary( confirm_input );
             }
             if (textspew == frame.text ) {
                 text_advance_ready = TEXT.READY;
@@ -58,7 +58,7 @@ if ( dialogue_mode ) {
     }
     
     if (text_advance_ready == TEXT.READY ) {
-        if ( input_check_pressed( "command" ) ) {
+        if ( input_check_pressed( confirm_input ) ) {
             textlinefadein = 0;
             text_advance_ready = TEXT.LOADING;
             if (ds_queue_empty(frames_queue) ) {
