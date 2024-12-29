@@ -51,8 +51,6 @@ if ( dialogue_mode ) {
             }
             if (textspew == frame.text ) {
                 text_advance_ready = TEXT.READY;
-                show_debug_message( frame.text );
-                show_debug_message( "textspew: " +  textspew );
             }
         }
     }

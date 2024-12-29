@@ -1,9 +1,15 @@
 if ( dialogue_mode ) {
-    if ( bg_anim == true && last_bg != -1 ) {
-        draw_sprite_ext( last_bg, 0, 0, 0, 1, 1, 0, c_white, (bg_anim_timer / bg_anim_time) ); 
-        draw_sprite_ext( bg, 0, 0, 0, 1, 1, 0, c_white, 1 - (bg_anim_timer / bg_anim_time) );
+    if ( bg_anim == true ) {
+        if (last_bg != -1) {
+            draw_sprite_ext( last_bg, 0, 0, 0, 1, 1, 0, c_white, (bg_anim_timer / bg_anim_time) ); 
+        }
+        if (bg != -1) {
+            draw_sprite_ext( bg, 0, 0, 0, 1, 1, 0, c_white, 1 - (bg_anim_timer / bg_anim_time) );
+        }
     } else {
-        draw_sprite_ext( bg, 0, 0, 0, 1, 1, 0, c_white, 1 );
+        if (bg != -1) {
+            draw_sprite_ext( bg, 0, 0, 0, 1, 1, 0, c_white, 1 );
+        }
     }
     
     if (array_length( frame.sprite ) > 0) {
@@ -18,10 +24,11 @@ if ( dialogue_mode ) {
         draw_sprite( spr_text_box, 0, 30, 220 );
         
         draw_set_font( fn_dialogue_names );
-        draw_text( 85, 225, frame.name );
+        draw_text( 45, 235, frame.name );
         
         draw_set_font( fn_dialogue_text );
-        draw_text( 75, 265, textspew );
+        
+        draw_text( 75, 255, textspew );
     }
     
     if (frame.display == DISPLAY.FULLSCREEN ) {
@@ -42,8 +49,8 @@ if ( dialogue_mode ) {
     if (text_advance_ready == TEXT.READY ) {
         loopdoop++;
         draw_set_alpha(1);
-        var pos_x = 540;
-        var pos_y = 300;
+        var pos_x = 590;
+        var pos_y = 320;
         if ( frame.display == DISPLAY.FULLSCREEN ) {
             pos_x = 320;
             pos_y = 320;

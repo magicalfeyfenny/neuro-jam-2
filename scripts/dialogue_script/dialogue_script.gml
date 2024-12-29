@@ -29,15 +29,15 @@ function dialogue_load() {
             //individual frames of a scene are structs in the array 'frames' within the scene array
             frames : [ {   
                 name : "Neuro?",
+                text :  "Don't worry, silly!\n" + 
+                        "We're much too cute to be in danger!",
+                display : DISPLAY.ADV,
                 sprite : [ spr_talk_neuro, spr_talk_neuro, spr_talk_neuro, spr_talk_neuro ],
                 sprite_pos_x : [ 95, 56, 303, 529 ],
                 sprite_pos_y : [ 130, 193, 300, 59 ],
-                display : DISPLAY.ADV,
-                text :  "Don't worry, silly!\n" + 
-                        "We're much too cute to be in danger!",
-                bg : spr_dialogue_bg_test,
-                mus : mus_11,
                 audio : -1,
+                bg : -1,
+                mus : mus_11,
             } ],
         },
         {
