@@ -9,7 +9,7 @@ switch global.drone_state {
                     other.idle_hover_point_y = y - 80;
                 } else {
                     other.idle_hover_point_x = x; 
-                    other.idle_hover_point_y = y - 64;
+                    other.idle_hover_point_y = y - 58;
                 }
             }
                 

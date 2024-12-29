@@ -15,16 +15,16 @@ function __input_config_verbs()
     return {
         keyboard_and_mouse:
         {
-            up:    [input_binding_key(vk_up),    input_binding_key("W")],
-            down:  [input_binding_key(vk_down),  input_binding_key("S")],
-            left:  [input_binding_key(vk_left),  input_binding_key("A")],
-            right: [input_binding_key(vk_right), input_binding_key("D")],
+            up:    [input_binding_key(vk_up)],
+            down:  [input_binding_key(vk_down)],
+            left:  [input_binding_key(vk_left)],
+            right: [input_binding_key(vk_right)],
             
             
-            interact:  [input_binding_key("X"), input_binding_key("F"), input_binding_mouse_button(mb_left)], //drone interact
-            climb : [input_binding_key("Z"), input_binding_key(vk_control)], //drone drop
-            jump: [input_binding_key("C"), input_binding_key(vk_space)], //drone recall
-            command: [input_binding_key("V"), input_binding_key("G")],
+            interact:  [input_binding_key("X"), input_binding_mouse_button(mb_left)], //drone interact
+            climb : [input_binding_key("Z")], //drone drop
+            jump: [input_binding_key("C")], //drone recall
+            command: [input_binding_key("V")],
             
             pause: input_binding_key(vk_escape),
         },

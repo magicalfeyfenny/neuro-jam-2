@@ -136,7 +136,7 @@ switch global.player_state {
                 face_dir = (touching_wall * -1);
                 vsp = 0;
                 hsp += walljump_spd*(touching_wall * -1);
-                vsp += jumpspd;
+                vsp += (jumpspd*1.5);
                 initiate_jump = false;
                 jump_input_timer = jump_input_timer_max; 
             }
@@ -162,7 +162,9 @@ switch global.player_state {
                 vsp = lerp(vsp,vsp*slide_multiplier,slide_transition_spd);
             }
         }   
-    
+        
+        vsp = clamp(vsp,-8,6);
+        
         //picking up objects    
         if input_check_pressed("interact"){ 
             if instance_holding != noone {
@@ -194,7 +196,7 @@ switch global.player_state {
 
         }
     
-        if input_check_pressed("command") {
+        if input_check_pressed("command") && instance_exists(obj_drone) {
             global.player_state = playerstate.commanding;
             border_flash_state = 0;
             var center_x = window_get_x() + window_get_width()/2
@@ -273,6 +275,8 @@ switch global.player_state {
     
     vsp += grv;
     
+    vsp = clamp(vsp,-8,6);
+    
     //player global.collisions
     if place_meeting(x+hsp, y, global.col) {
         while !place_meeting(x+sign(hsp), y, global.col) {
@@ -291,6 +295,48 @@ switch global.player_state {
     y += vsp;
     
     rotation = approach(rotation,0,1);
+    
+    //cutscene state
+    case playerstate.cutscene:
+    
+    onground = place_meeting(x,y+1,global.col);
+    
+    stamina = approach(stamina,staminamax,stamina_recover_amt);
+     
+    
+    if cutscene_move != 0 {
+        hsp = approach(hsp,walksp*cutscene_move,accel);
+    } else {
+        hsp = approach(hsp,0,decel);
+    }
+    
+    if cutscene_move != 0 { 
+        face_dir = cutscene_move;    
+    }  
+    
+    vsp += grv;
+    
+    vsp = clamp(vsp,-8,6);
+    
+    //player global.collisions
+    if place_meeting(x+hsp, y, global.col) {
+        while !place_meeting(x+sign(hsp), y, global.col) {
+            x += sign(hsp);
+        }
+    hsp = 0;
+    }
+    x += hsp;
+    
+    if place_meeting(x, y+vsp, global.col) {
+        while !place_meeting(x, y+sign(vsp), global.col) {
+            y += sign(vsp);
+        }
+    vsp = 0;
+    }
+    y += vsp;
+    
+    rotation = approach(rotation,0,1);
+    break;
     break;
 }
 
