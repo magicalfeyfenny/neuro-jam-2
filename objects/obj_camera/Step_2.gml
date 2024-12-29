@@ -4,8 +4,21 @@ if room == rm_title || room == rm_init {
 } else {
     if instance_exists(followtarget){
         if followtarget == obj_player {
-            x = lerp(x,followtarget.x,followamt);
-            y = lerp(y,followtarget.y,followamt); 
+            switch global.player_state {
+                default:
+                    x = lerp(x,followtarget.x,followamt);
+                    y = lerp(y,followtarget.y - 32,followamt); 
+                break;
+                
+                case playerstate.commanding:
+                    mouse_len = point_distance(obj_player.x,obj_player.y,mouse_x,mouse_y);
+                    //mouse_len = clamp(mouse_len,0,160);
+                    mouse_dir = point_direction(obj_player.x,obj_player.y,mouse_x,mouse_y);
+                    var mousediv = 3
+                    x =	lerp(x,((followtarget.x) + lengthdir_x(mouse_len/mousediv,mouse_dir)),followamt);
+                    y =	lerp(y,((followtarget.y - 32) + lengthdir_y(mouse_len/mousediv,mouse_dir)),followamt);
+                break; 
+            }
         } else {
             x = lerp(x,followtarget.x,followamt);
             y = lerp(y,followtarget.y,followamt);

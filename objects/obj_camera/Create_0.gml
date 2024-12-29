@@ -22,3 +22,6 @@ followamt = 0.1;
 
 clamp_y = true;
 clamp_x = false;
+
+mouse_len = 0;
+mouse_dir = 0;
