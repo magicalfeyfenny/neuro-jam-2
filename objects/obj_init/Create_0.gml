@@ -2,13 +2,22 @@ globalvar data;
 globalvar default_game_data;
 data = {
     game : { 
-        save_point : 0,
+        save_point : -1,
+        default_start_room : rm_test,
         time : 0,
         //add game-specific data / event flags here
     },
     options : {
         fullscreen : true,
         vsync : true,
+    },
+    save_points : {
+        rooms : [ rm_test ],
+        position : {
+            x : [ 400 ], 
+            y : [ 192 ],
+        },
+        names : [ "save 0" ],
     },
 };
 
@@ -22,15 +31,9 @@ game_data_filename = "game_data.json";
 globalvar save_screen_name;
 save_screen_name = "save_screenshot.png";
 
-globalvar save_points;
-save_points = {
-    rooms : [ rm_test, rm_test, rm_test ],
-    position : {
-        x : [ 300, 200, 100 ], 
-        y : [ 50, 100, 150 ],
-    },
-    names : [ "save 0", "save 1", "save 2" ],
-};
+globalvar file_loading;
+file_loading = false;
+
 
 alarm[0] = 1;
 

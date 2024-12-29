@@ -6,7 +6,7 @@
   "name":"NeuroSendActionResult",
   "parent":{
     "name":"Functions",
-    "path":"folders/NeuroGameAPI/Functions.yy",
+    "path":"folders/Plugins/NeuroGameAPI/Functions.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

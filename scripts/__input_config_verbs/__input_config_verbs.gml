@@ -20,13 +20,9 @@ function __input_config_verbs()
             left:  [input_binding_key(vk_left),  input_binding_key("A")],
             right: [input_binding_key(vk_right), input_binding_key("D")],
             
-            accept:  input_binding_key(vk_space),
-            cancel:  input_binding_key(vk_backspace),
-            action:  input_binding_key(vk_enter),
-            special: input_binding_key(vk_shift),
-            
-            //No aiming verbs since we use the mouse for that (see below for aiming verb examples)
-            shoot: input_binding_mouse_button(mb_left),
+            interact:  [input_binding_key("X"), input_binding_key(vk_control)],
+            climb : [input_binding_key("Z"), input_binding_key("E")],
+            jump: [input_binding_key("C"), input_binding_key(vk_space)],
             
             pause: input_binding_key(vk_escape),
         },
@@ -50,21 +46,6 @@ function __input_config_verbs()
             shoot:     [input_binding_gamepad_button(gp_shoulderlb), input_binding_gamepad_button(gp_shoulderrb)],
             
             pause: input_binding_gamepad_button(gp_start),
-        },
-        
-        touch:
-        {
-            up:    input_binding_virtual_button(),
-            down:  input_binding_virtual_button(),
-            left:  input_binding_virtual_button(),
-            right: input_binding_virtual_button(),
-            
-            accept:  input_binding_virtual_button(),
-            cancel:  input_binding_virtual_button(),
-            action:  input_binding_virtual_button(),
-            special: input_binding_virtual_button(),
-            
-            pause: input_binding_virtual_button(),
         }
     };
 }

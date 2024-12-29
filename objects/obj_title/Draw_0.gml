@@ -64,8 +64,12 @@ switch ( title_state ) {
         draw_set_alpha(1);
         draw_sprite_stretched_ext( load_sprite, 0, 160, 120, 320, 180, c_white, title_alpha );
         draw_text_color( 50, 50, "Load data", c_white, c_white, c_white, c_white, title_alpha );
-        var loc = data.game.save_point;
-        var loc_str = save_points.names[loc];
+        var loc = -1;
+        var loc_str = "No data saved . . .";
+        if ( data.game.save_point < array_length(data.save_points.rooms) && data.game.save_point != -1 ) {
+            loc = data.game.save_point;
+            loc_str = data.save_points.names[loc];
+        }
         var time_hours = string(floor(data.game.time / (60*60*game_get_speed(gamespeed_fps))));
         var time_minutes = string(floor(data.game.time / (60*game_get_speed(gamespeed_fps))));
         var time_seconds = string(floor(data.game.time / game_get_speed(gamespeed_fps) ));

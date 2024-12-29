@@ -13,8 +13,8 @@
   "name":"obj_savepoint",
   "overriddenProperties":[],
   "parent":{
-    "name":"neuro-jam-2",
-    "path":"neuro-jam-2.yyp",
+    "name":"Environment",
+    "path":"folders/Objects/Environment.yy",
   },
   "parentObjectId":null,
   "persistent":false,
