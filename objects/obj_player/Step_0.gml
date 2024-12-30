@@ -2,7 +2,12 @@ switch global.player_state {
     case playerstate.grounded:
         //horizontal player movement
         if climbing == false {
-            var move = input_check("right") - input_check("left");
+            var move = 0;
+            
+            if  !cutscene_mode {
+                move = input_check("right") - input_check("left");
+            }
+                
             
             if move != 0 {
                 hsp = approach(hsp,walksp*move,accel);
@@ -28,7 +33,7 @@ switch global.player_state {
         
         var wallgrabdistance = 4;
         
-    if holding_object == false {
+    if holding_object == false && !cutscene_mode {
             //detect what wall the player is touching and detect whether or not player is sliding down the wall
             if place_meeting(x+wallgrabdistance,y,global.col) && face_dir == 1 {
                 touching_wall = 1;
@@ -62,7 +67,7 @@ switch global.player_state {
             }
             
             //climbing
-            if touching_wall != 0 && input_check("climb") && stamina > 0 {
+            if touching_wall != 0 && input_check("climb") && stamina > 0 && !cutscene_mode{
                 climbing = true;
                 face_dir = touching_wall;
                 mantle = true;
@@ -76,7 +81,7 @@ switch global.player_state {
             }
             
             //automatically mantle up a ledge when climbing upwards
-            if !onground && input_check("climb") && touching_wall == 0 {
+            if !onground && input_check("climb") && touching_wall == 0 && !cutscene_mode{
                 if place_meeting(x+(face_dir*2),y+3,global.col) {
                     if mantle && vsp < 0 {
                         var mantle_dist = 3.5;
@@ -108,7 +113,7 @@ switch global.player_state {
         }
         
         //jump system that includes variable jumping and a jump buffer to make movement smoother and more responsive
-        if input_check_pressed("jump") {
+        if input_check_pressed("jump") && !cutscene_mode {
             initiate_jump = true;
             landtimer = 0;
         }
@@ -166,7 +171,7 @@ switch global.player_state {
         vsp = clamp(vsp,-8,6);
         
         //picking up objects    
-        if input_check_pressed("interact"){ 
+        if input_check_pressed("interact") && !cutscene_mode { 
             if instance_holding != noone {
                 if instance_holding.interacted {
                     instance_holding.interacted = false;
@@ -196,7 +201,7 @@ switch global.player_state {
 
         }
     
-        if input_check_pressed("command") && instance_exists(obj_drone) {
+        if input_check_pressed("command") && instance_exists(obj_drone) && !cutscene_mode{
             global.player_state = playerstate.commanding;
             border_flash_state = 0;
             var center_x = window_get_x() + window_get_width()/2

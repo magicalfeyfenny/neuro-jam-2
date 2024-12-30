@@ -92,4 +92,3 @@ if room == rm_level1 {
 } else {
     global.player_state = playerstate.grounded;
 }
-    
