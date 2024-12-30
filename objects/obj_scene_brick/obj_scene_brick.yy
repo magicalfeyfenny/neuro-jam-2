@@ -1,11 +1,11 @@
 {
   "$GMObject":"",
-  "%Name":"obj_scene_sign",
+  "%Name":"obj_scene_brick",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_scene_sign",
+  "name":"obj_scene_brick",
   "overriddenProperties":[],
   "parent":{
     "name":"Interactables",
@@ -33,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_sign_interact",
-    "path":"sprites/spr_sign_interact/spr_sign_interact.yy",
+    "name":"spr_brick",
+    "path":"sprites/spr_brick/spr_brick.yy",
   },
   "spriteMaskId":null,
   "visible":true,

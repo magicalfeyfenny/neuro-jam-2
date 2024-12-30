@@ -1,4 +1,2 @@
-interact_allowed = false;
-interact_attempting = false;
-scene_finished = false;
+event_inherited();
 timeline_used = tml_cutscene_trashdrones;
