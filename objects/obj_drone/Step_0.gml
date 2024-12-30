@@ -2,22 +2,23 @@ hover_y = sin(hovertimer * 0.1) * 0.25;
 
 switch global.drone_state {
     case dronestate.hover:
-        if obj_player.climbing == false {
-            with drone_follow_target {
-                if place_meeting(x,y,obj_par_interactable) || holding_object || other.holding_object {
-                    other.idle_hover_point_x = x; 
-                    other.idle_hover_point_y = y - 80;
-                } else {
-                    other.idle_hover_point_x = x; 
-                    other.idle_hover_point_y = y - 58;
+        if !cutscene_mode {
+            if obj_player.climbing == false {
+                with drone_follow_target {
+                    if place_meeting(x,y,obj_par_interactable) || holding_object || other.holding_object {
+                        other.idle_hover_point_x = x; 
+                        other.idle_hover_point_y = y - 80;
+                    } else {
+                        other.idle_hover_point_x = x; 
+                        other.idle_hover_point_y = y - 58;
+                    }
                 }
+                    
+            } else if drone_follow_target.climbing == true {
+                idle_hover_point_x = drone_follow_target.x + (32*(obj_player.face_dir*-1));
+                idle_hover_point_y = drone_follow_target.y - 32;
             }
-                
-        } else if drone_follow_target.climbing == true {
-            idle_hover_point_x = drone_follow_target.x + (32*(obj_player.face_dir*-1));
-            idle_hover_point_y = drone_follow_target.y - 32;
         }
-        
         distance_from_player = point_distance(x,y,obj_player.x,obj_player.y - 16);
         
         hovertimer++;
