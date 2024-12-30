@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"laseractivatedeactivate",
+  "audioGroupId":{
+    "name":"audiogroup_sounds",
+    "path":"audiogroups/audiogroup_sounds",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":0,
+  "conversionMode":0,
+  "duration":0.857141,
+  "name":"laseractivatedeactivate",
+  "parent":{
+    "name":"Sounds",
+    "path":"folders/Audio/Sounds.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"laseractivatedeactivate.wav",
+  "type":0,
+  "volume":0.3,
+}

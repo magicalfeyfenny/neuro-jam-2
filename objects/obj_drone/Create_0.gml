@@ -53,3 +53,4 @@ retrievetimermax = 1*60;
 retrievertimer = retrievetimermax;
 
 drone_ambience = audio_emitter_create();
+audio_falloff_set_model(audio_falloff_linear_distance);

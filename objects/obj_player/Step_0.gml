@@ -93,6 +93,9 @@ switch global.player_state {
     }
         //gives the player a short time window to jump after leaving the ground
         if onground {
+            if jumpbuffer != jumpbuffermax { 
+                    audio_play_sound(landing,1,false,0.5,0,random_range(0.9,1.1));
+            }
             jumpbuffer = jumpbuffermax;	
             mantle = true;
             regen_stamina = true;
@@ -122,7 +125,8 @@ switch global.player_state {
         if touching_wall == 0 || onground {
             //normal jumping
             if initiate_jump == true && jumpcount < jumpmax { 
-                audio_play_sound(jump,1,false,1,0,random_range(0.95,1.05));
+                    audio_play_sound(jumptest,1,false,0.5,0,random_range(0.9,1.1));
+                
                 jumpcount++;
                 jumptimer = jumpframes;
                 if vsp != 0 {	
@@ -145,6 +149,9 @@ switch global.player_state {
                 vsp += (jumpspd*1.5);
                 initiate_jump = false;
                 jump_input_timer = jump_input_timer_max; 
+
+                    audio_play_sound(jumptest,1,false,0.5,0,random_range(0.9,1.1));
+                
             }
         }
         
@@ -475,7 +482,22 @@ if place_meeting(x,y,obj_par_danger) && global.player_state != playerstate.dead 
     regen_stamina = true;
     stamina_drain = false;
     obj_drone.sprite_index = spr_dronetest2
-    audio_play_sound(hurt_death,1,false);
+    with obj_drone {
+        follow_player = true;
+        global.drone_state = dronestate.hover;
+        drone_target = noone;
+        drone_target_x = 0;
+        drone_target_y = 0;
+        move_to_target = false;
+        drone_target = noone;
+        drone_action_registered = false;
+        audio_play_sound(dronerecall,1,false);
+
+
+    }
+    audio_play_sound(snd_death,1,false);
+    audio_play_sound(player_hurt,1,false);
+    //audio_play_sound(hurt_death,1,false);
 }
 
 audio_listener_position(x, y - 12, 0);
