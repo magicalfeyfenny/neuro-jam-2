@@ -184,7 +184,7 @@ switch ( title_state ) {
         draw_text_color( 70, 180, "Art/Visuals:", c_white, c_white, c_white, c_white, title_alpha );
         draw_text_color( 90, 200, "sasumeat", c_white, c_white, c_white, c_white, title_alpha );
         draw_text_color( 70, 220, "Sound/Music:", c_white, c_white, c_white, c_white, title_alpha );
-        draw_text_color( 90, 240, "asmn15", c_white, c_white, c_white, c_white, title_alpha );
+        draw_text_color( 90, 240, "masn47", c_white, c_white, c_white, c_white, title_alpha );
         break;
     }
 }

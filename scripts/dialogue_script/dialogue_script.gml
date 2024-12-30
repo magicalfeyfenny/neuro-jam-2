@@ -12,6 +12,7 @@ function dialogue_load() {
         INTERACT_POSTER = 3,
         INTERACT_SIGN = 4,
         INTERACT_DRONE_BROKEN = 5,
+        INTERACT_BRICK = 6,
     }
     enum DISPLAY {
         ADV = 0,
@@ -292,6 +293,21 @@ function dialogue_load() {
             }, {   
                 name : "",
                 text :  "(Could hardly ever fall asleep after that.)",
+                display : DISPLAY.ADV,
+                sprite : [ ],
+                sprite_pos_x : [ ],
+                sprite_pos_y : [ ],
+                audio : -1,
+                bg : -1,
+                mus : -1,
+            } ],
+        }, {
+            scene_name : "brick johnson",
+            //individual frames of a scene are structs in the array 'frames' within the scene array
+            frames : [ {   
+                name : "",
+                text :  "(Hi, I'm Brick Johnson. I used to be in another universe with my brother,\n" + 
+                        "but not anymore.)",
                 display : DISPLAY.ADV,
                 sprite : [ ],
                 sprite_pos_x : [ ],
