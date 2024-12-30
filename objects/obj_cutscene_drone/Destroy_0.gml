@@ -1,0 +1,1 @@
+data.game.lv1_endscene_played = true;
