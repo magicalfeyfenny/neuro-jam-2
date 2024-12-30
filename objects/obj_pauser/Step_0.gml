@@ -25,6 +25,7 @@ if (pause) {
             //quit
             room_goto(rm_init);
             audio_stop_sound(wind);
+            audio_stop_sound(_22);
             
         } 
     }
