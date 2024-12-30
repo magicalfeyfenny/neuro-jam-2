@@ -21,13 +21,13 @@ if ( dialogue_mode ) {
     if ( frame.display == DISPLAY.ADV ) {
         narrator_alpha = 0;
         draw_set_halign( fa_left );
-        draw_sprite( spr_text_box, 0, 30, 220 );
+        draw_sprite( spr_text_box, 0, 30, 250 );
         
         draw_set_font( fn_dialogue_names );
-        draw_text( 45, 235, frame.name );
+        draw_text( 45, 265, frame.name );
         
         draw_set_font( fn_dialogue_text );
-        draw_text( 75, 255, textspew );
+        draw_text( 75, 285, textspew );
     }
     
     if (frame.display == DISPLAY.FULLSCREEN ) {

@@ -247,7 +247,7 @@ function dialogue_load() {
                 mus : -1,
             }, {   
                 name : "",
-                text :  "(\"IT'S NOT CUTE TO DISOBEY AUTHORITY",
+                text :  "(\"IT'S NOT CUTE TO DISOBEY AUTHORITY\")",
                 display : DISPLAY.ADV,
                 sprite : [ ],
                 sprite_pos_x : [ ],

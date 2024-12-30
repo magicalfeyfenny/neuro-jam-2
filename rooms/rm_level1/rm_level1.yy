@@ -62,6 +62,7 @@
     {"name":"inst_3FA67039","path":"rooms/rm_level1/rm_level1.yy",},
     {"name":"inst_8C2D185","path":"rooms/rm_level1/rm_level1.yy",},
     {"name":"inst_5ECD7BA8","path":"rooms/rm_level1/rm_level1.yy",},
+    {"name":"inst_5752D3D3","path":"rooms/rm_level1/rm_level1.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -156,6 +157,7 @@
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_tutorial_message","path":"objects/obj_tutorial_message/obj_tutorial_message.yy",},"propertyId":{"name":"confirm_key2","path":"objects/obj_tutorial_message/obj_tutorial_message.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"\"pause\"",},
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_tutorial_message","path":"objects/obj_tutorial_message/obj_tutorial_message.yy",},"propertyId":{"name":"message_duration","path":"objects/obj_tutorial_message/obj_tutorial_message.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"5",},
           ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":19.0,"x":3712.0,"y":-64.0,},
+        {"$GMRInstance":"v1","%Name":"inst_5752D3D3","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_5752D3D3","objectId":{"name":"obj_scene_sign","path":"objects/obj_scene_sign/obj_scene_sign.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":4064.0,"y":480.0,},
       ],"layers":[],"name":"Environment","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRTileLayer":"","%Name":"Tiles_2","depth":400,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Tiles_2","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":20,"SerialiseWidth":192,"TileCompressedData":[
           -88,-2147483648,3,17,1,25,-189,-2147483648,3,17,1,25,-189,-2147483648,3,17,1,25,-189,-2147483648,3,17,

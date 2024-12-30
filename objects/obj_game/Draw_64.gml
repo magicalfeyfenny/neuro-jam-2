@@ -14,4 +14,7 @@ if global.debug {
         draw_text(8,248,"onground : " + string(obj_player.onground));
         draw_text(8,272,"face_dir : " + string(obj_player.face_dir));
     }
+    draw_text( 8, 296, "cutscene_mode : " + string( cutscene_mode ) );
+    draw_text( 8, 320, "cutscene_number : " + string( cutscene_number ));
+    draw_text( 8, 344, "dialogue_mode : " + string( dialogue_mode ) );
 }
