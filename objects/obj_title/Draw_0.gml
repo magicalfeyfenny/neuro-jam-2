@@ -32,11 +32,11 @@ switch ( title_state ) {
         draw_set_alpha(title_alpha / 2);
         draw_triangle_color( 650, -440, 650, 840, 650 - (320 * title_alpha), 840, c_black, c_black, c_black, false );
         draw_set_alpha(1);
-        draw_text_color( 524, 206, "Continue", c_white, c_white, c_white, c_white, title_alpha );
-        draw_text_color( 518, 230, "New Game", c_white, c_white, c_white, c_white, title_alpha );
-        draw_text_color( 512, 254, "Options", c_white, c_white, c_white, c_white, title_alpha );
-        draw_text_color( 506, 278, "Credits", c_white, c_white, c_white, c_white, title_alpha );
-        draw_text_color( 500, 302, "Exit Game", c_white, c_white, c_white, c_white, title_alpha );
+        //draw_text_color( 524, 206, "Continue", c_white, c_white, c_white, c_white, title_alpha );
+        draw_text_color( 518, 206, "Start Game", c_white, c_white, c_white, c_white, title_alpha );
+        draw_text_color( 512, 230, "Options", c_white, c_white, c_white, c_white, title_alpha );
+        draw_text_color( 506, 254, "Credits", c_white, c_white, c_white, c_white, title_alpha );
+        draw_text_color( 500, 278, "Exit Game", c_white, c_white, c_white, c_white, title_alpha );
         if ( title_input_allow && title_anim == false) { 
             draw_sprite( spr_title_cursor, 0, 512 - (title_cursor_pos * 6), 192 + (title_cursor_pos * 24) );
         } 
@@ -105,9 +105,9 @@ switch ( title_state ) {
         draw_set_alpha(title_alpha / 2);
         draw_roundrect_color( 30, 30, 610, 330, c_black, c_black, false );     //change how these look later
         draw_set_alpha(1);
-        draw_text_color( 50, 50, "New game", c_white, c_white, c_white, c_white, title_alpha );
-        draw_text_color( 70, 80, "Start a new file", c_white, c_white, c_white, c_white, title_alpha );
-        draw_text_color( 70, 104, "Saving will overwrite your current file.", c_white, c_white, c_white, c_white, title_alpha );
+        draw_text_color( 50, 50, "Start Game", c_white, c_white, c_white, c_white, title_alpha );
+        draw_text_color( 70, 80, "Start from the last checkpoint.", c_white, c_white, c_white, c_white, title_alpha );
+        draw_sprite_stretched_ext( load_sprite, 0, 160, 130, 320, 180, c_white, title_alpha );
         break;
     }
     case title_options: { 
