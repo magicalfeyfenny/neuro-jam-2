@@ -37,7 +37,5 @@ temp_options = json_parse(json_stringify(data.options));
 
 audio_play_sound( mus_3, 0, true );
 
-draw_set_font( fn_menu );
-
 title_logo_x = 320;
 title_logo_y = 30;
