@@ -130,7 +130,6 @@
     {"id":{"name":"obj_scene_trashdrone","path":"objects/obj_scene_trashdrone/obj_scene_trashdrone.yy",},},
     {"id":{"name":"obj_spike","path":"objects/obj_spike/obj_spike.yy",},},
     {"id":{"name":"obj_testcrate","path":"objects/obj_testcrate/obj_testcrate.yy",},},
-    {"id":{"name":"obj_testsolid","path":"objects/obj_testsolid/obj_testsolid.yy",},},
     {"id":{"name":"obj_textintro","path":"objects/obj_textintro/obj_textintro.yy",},},
     {"id":{"name":"obj_title","path":"objects/obj_title/obj_title.yy",},},
     {"id":{"name":"obj_tutorial_message","path":"objects/obj_tutorial_message/obj_tutorial_message.yy",},},
