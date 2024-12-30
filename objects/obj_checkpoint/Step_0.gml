@@ -1,8 +1,8 @@
-if ( distance_to_object( obj_player ) < 50 && save_allowed && spawned_in == false) {
+if ( distance_to_object( obj_player ) < 4 && save_allowed && spawned_in == false) {
     save_attempting = true;
 }
 
-if ( save_attempting && spawned_in == false;) {
+if ( save_attempting && spawned_in == false) {
     alarm[1] = 1;
 }
 

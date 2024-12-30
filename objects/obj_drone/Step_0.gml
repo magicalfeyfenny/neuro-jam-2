@@ -195,7 +195,7 @@ switch global.drone_state {
                     hsp = (obj_player.hsp/1.5);
                     obj_player.hsp = 0;
                     obj_player.vsp = 0;
-                    audio_play_sound(dronesound2,1,true);
+                    audio_play_sound(dronesound2,1,true,1,0,1);
                     mask_index = spr_playerflying
                 } else if global.player_state == playerstate.flying {
                     global.player_state = playerstate.grounded;

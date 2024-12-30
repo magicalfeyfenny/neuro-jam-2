@@ -1,13 +1,14 @@
 {
   "$GMObject":"",
   "%Name":"obj_metalcrate",
-  "eventList":[],
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":{"name":"obj_par_danger","path":"objects/obj_par_danger/obj_par_danger.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
   "name":"obj_metalcrate",
   "overriddenProperties":[
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_par_interactable","path":"objects/obj_par_interactable/obj_par_interactable.yy",},"propertyId":{"name":"holdable","path":"objects/obj_par_interactable/obj_par_interactable.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"True",},
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_par_interactable","path":"objects/obj_par_interactable/obj_par_interactable.yy",},"propertyId":{"name":"has_physics","path":"objects/obj_par_interactable/obj_par_interactable.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"True",},
-    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_par_interactable","path":"objects/obj_par_interactable/obj_par_interactable.yy",},"propertyId":{"name":"physics_sound","path":"objects/obj_par_interactable/obj_par_interactable.yy",},"resource":{"name":"metalbox","path":"sounds/metalbox/metalbox.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"metalbox",},
   ],
   "parent":{
     "name":"Interactables",

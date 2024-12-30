@@ -84,7 +84,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.1100.0.713",
+    "IDEVersion":"2024.11.0.179",
   },
   "name":"neuro-jam-2",
   "resources":[
@@ -112,6 +112,7 @@
     {"id":{"name":"obj_lever","path":"objects/obj_lever/obj_lever.yy",},},
     {"id":{"name":"obj_loader","path":"objects/obj_loader/obj_loader.yy",},},
     {"id":{"name":"obj_metalcrate","path":"objects/obj_metalcrate/obj_metalcrate.yy",},},
+    {"id":{"name":"obj_music_trigger","path":"objects/obj_music_trigger/obj_music_trigger.yy",},},
     {"id":{"name":"obj_neurogameapi","path":"objects/obj_neurogameapi/obj_neurogameapi.yy",},},
     {"id":{"name":"obj_nextroom_teleport","path":"objects/obj_nextroom_teleport/obj_nextroom_teleport.yy",},},
     {"id":{"name":"obj_par_danger","path":"objects/obj_par_danger/obj_par_danger.yy",},},
@@ -128,6 +129,7 @@
     {"id":{"name":"obj_scene_sign","path":"objects/obj_scene_sign/obj_scene_sign.yy",},},
     {"id":{"name":"obj_scene_target","path":"objects/obj_scene_target/obj_scene_target.yy",},},
     {"id":{"name":"obj_scene_trashdrone","path":"objects/obj_scene_trashdrone/obj_scene_trashdrone.yy",},},
+    {"id":{"name":"obj_speciallever","path":"objects/obj_speciallever/obj_speciallever.yy",},},
     {"id":{"name":"obj_spike","path":"objects/obj_spike/obj_spike.yy",},},
     {"id":{"name":"obj_testcrate","path":"objects/obj_testcrate/obj_testcrate.yy",},},
     {"id":{"name":"obj_textintro","path":"objects/obj_textintro/obj_textintro.yy",},},
@@ -487,6 +489,8 @@
     {"id":{"name":"player_exists","path":"scripts/player_exists/player_exists.yy",},},
     {"id":{"name":"screenshake","path":"scripts/screenshake/screenshake.yy",},},
     {"id":{"name":"sh_flash","path":"shaders/sh_flash/sh_flash.yy",},},
+    {"id":{"name":"_22","path":"sounds/_22/_22.yy",},},
+    {"id":{"name":"arp","path":"sounds/arp/arp.yy",},},
     {"id":{"name":"buttonpressed","path":"sounds/buttonpressed/buttonpressed.yy",},},
     {"id":{"name":"buttonunpressed","path":"sounds/buttonunpressed/buttonunpressed.yy",},},
     {"id":{"name":"drone_command","path":"sounds/drone_command/drone_command.yy",},},

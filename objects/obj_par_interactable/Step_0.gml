@@ -40,7 +40,7 @@ if has_physics && !interacted {
     
     if place_meeting(x,y+1,global.col) {
         if hitground == false {
-            audio_play_sound(physics_sound,1,false,1,0,random_range(0.8,1));
+            //audio_play_sound(physics_sound,1,false,1,0,random_range(0.8,1));
             hitground = true;
         }
     } else {
