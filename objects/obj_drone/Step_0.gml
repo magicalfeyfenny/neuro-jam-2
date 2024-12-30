@@ -1,8 +1,9 @@
 audio_emitter_position(drone_ambience, x, y, 0);
-/*if !audio_is_playing(droneambient) {
+if !audio_is_playing(droneambient) {
     //audio_play_sound(droneambient,1,true,0.5,0,2);
-    audio_play_sound_at(droneambient,x,y,0,16,128,false,0.5,1,3);
-}*/
+    //audio_play_sound_at(droneambient,x,y,0,16,128,false,0.5,1,3);
+    audio_play_sound_on(drone_ambience, droneambient, false, 1, 0.2,0,2);
+}
 
 hover_y = sin(hovertimer * 0.1) * 0.25;
 
@@ -165,12 +166,14 @@ switch global.drone_state {
                     hsp = (obj_player.hsp/1.5);
                     obj_player.hsp = 0;
                     obj_player.vsp = 0;
-                    audio_play_sound(dronesound2,1,false);
+                    audio_play_sound(dronesound2,1,true);
+                    mask_index = spr_playerflying
                 } else if global.player_state == playerstate.flying {
                     global.player_state = playerstate.grounded;
                     obj_player.sprite_index = spr_playerjump;
                     sprite_index = spr_dronetest2;
                     obj_player.fly_transition = false;
+                    mask_index = spr_dronetest2;
                     obj_player.rotation = rotation;
                     audio_stop_sound(dronesound2);
                     audio_play_sound(dronedrop,1,false);
@@ -196,6 +199,7 @@ switch global.drone_state {
                 obj_player.rotation = rotation;
                 audio_stop_sound(dronesound2);
                 audio_play_sound(droneinteract,1,false);
+                mask_index = spr_dronetest2;
             }
             
             if obj_player.stamina <= 0 {
@@ -205,7 +209,10 @@ switch global.drone_state {
                 obj_player.fly_transition = false;
                 obj_player.rotation = rotation;
                 audio_stop_sound(dronesound2);
-                audio_play_sound(dronedrop,1,false);
+                if !audio_is_playing(dronedrop) {
+                    audio_play_sound(dronedrop,1,false);
+                }    
+                mask_index = spr_dronetest2;
             }
         }
     break;
@@ -377,4 +384,32 @@ if global.player_state == playerstate.commanding {
 
  
     }
+}
+
+if global.player_state == playerstate.dead {
+    audio_stop_sound(dronesound2);
+    if instance_holding != noone { 
+        with instance_holding {
+            if other.holding_object && !place_meeting(x,y,global.col) {
+                if variable_instance_exists(other.instance_holding,"is_lever") {
+                    interacted = false;
+                    interacter = noone;
+                    other.holding_object = false;     
+                    other.instance_holding = noone;
+                    other.move_to_target = false;
+                    audio_play_sound(dronedrop,1,false);
+                } else {
+                        interacted = false;
+                        interacter = noone;   
+                        other.holding_object = false;     
+                        other.move_to_target = false;
+                        hsp = 0;
+                        vsp = 0;
+                        other.instance_holding = noone;  
+                        audio_play_sound(dronedrop,1,false);
+                }               
+
+            }  
+        }    
+    }   
 }

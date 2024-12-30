@@ -37,6 +37,15 @@ if has_physics && !interacted {
         hsp = approach(hsp,0,air_fric);
     }
     y += vsp;
+    
+    if place_meeting(x,y+1,global.col) {
+        if hitground == false {
+            audio_play_sound(physics_sound,1,false,1,0,random_range(0.8,1));
+            hitground = true;
+        }
+    } else {
+        hitground = false;
+    }
 }
 
 if player_exists() && instance_exists(obj_drone) {
