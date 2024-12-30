@@ -18,7 +18,11 @@ if (pause) {
         draw_set_color( c_white );
         draw_set_font( fn_menu );
         draw_text(320, 170, "Paused");
+        draw_text(320, 220, "Hold V to exit");
         draw_set_color(c_white);
         draw_set_halign(fa_left);
+        if (allowed_to_quit) {
+            draw_rectangle_color(200, 251, 440 - ( quit_timer * 4 ) , 249, c_fuchsia, c_fuchsia, c_fuchsia, c_fuchsia, false);
+        }
     }
 }
