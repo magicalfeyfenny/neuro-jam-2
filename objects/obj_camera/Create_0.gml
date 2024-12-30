@@ -25,3 +25,8 @@ clamp_x = true;
 
 mouse_len = 0;
 mouse_dir = 0;
+
+shake_length = 0;
+shake_magnitude = 0;
+shake_remain = 0;
+buff = 2;

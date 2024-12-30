@@ -92,3 +92,10 @@ if room == rm_level1 {
 } else {
     global.player_state = playerstate.grounded;
 }
+
+global.bodyretrieved = false;
+
+global.respawn_x = xstart;
+global.respawn_y = ystart;
+
+global.reachedrespawn = false;

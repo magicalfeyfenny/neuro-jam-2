@@ -48,3 +48,8 @@ drone_target_x = 0;
 drone_target_y = 0;
 
 og_depth = depth;
+
+retrievetimermax = 1*60;
+retrievertimer = retrievetimermax;
+
+drone_ambience = audio_emitter_create();
