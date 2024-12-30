@@ -17,8 +17,14 @@ if (pause) {
     }
     if (input_check( "command" ) && allowed_to_quit ) {
         quit_timer--;
-        if (quit_timer == 0) {
+        if (quit_timer <= 0) {
+            //end pause
+            instance_activate_all();
+            surface_free(paused_surface);
+            paused_surface = -1;
+            //quit
             room_goto(rm_init);
+            
         } 
     }
     if (input_check_released( "command") ) {

@@ -1,4 +1,5 @@
 //draw background separately from normal menu
+draw_set_font( fn_menu );
 var title_bg_alpha = 1;
 if (title_state == title_init && title_anim == true) {
     title_bg_alpha = 1 - (.05 * title_anim_timer);
@@ -106,6 +107,7 @@ switch ( title_state ) {
         draw_set_alpha(1);
         draw_text_color( 50, 50, "New game", c_white, c_white, c_white, c_white, title_alpha );
         draw_text_color( 70, 80, "Start a new file", c_white, c_white, c_white, c_white, title_alpha );
+        draw_text_color( 70, 100, "Saving will overwrite your current file.", c_white, c_white, c_white, c_white, title_alpha );
         break;
     }
     case title_options: { 
@@ -186,6 +188,11 @@ switch ( title_state ) {
         break;
     }
 }
+
+draw_rectangle_color(-1, 346, 641, 361, c_black, c_black, c_black, c_black, false);
+draw_set_font(fn_menu_tutorial);
+draw_set_color( c_white );
+draw_text(10, 348, "X: Select, Esc: Back, Arrows: Navigate" );
 
 if (draw_fadeout) { 
     var draw_alpha = 1 - (alarm_get(0) / title_fadeout_time)

@@ -19,6 +19,7 @@ if (pause) {
         draw_set_font( fn_menu );
         draw_text(320, 170, "Paused");
         draw_text(320, 220, "Hold V to exit");
+        draw_text(320, 270, "Press Esc to return to the game" );
         draw_set_color(c_white);
         draw_set_halign(fa_left);
         if (allowed_to_quit) {
