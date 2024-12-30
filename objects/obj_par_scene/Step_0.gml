@@ -13,7 +13,6 @@ if (scene_finished) {
     dialogue_mode = false;
     timeline_running = false;
     timeline_position = 0;
-    timeline_index = timeline_used;
-    data.game.lv1_endscene_played = true;
+    timeline_index = -1;
     instance_destroy();
 }

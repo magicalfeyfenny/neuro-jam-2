@@ -1,18 +1,15 @@
 {
   "$GMObject":"",
-  "%Name":"obj_testsolid",
+  "%Name":"obj_scene_target",
   "eventList":[],
   "managed":true,
-  "name":"obj_testsolid",
+  "name":"obj_scene_target",
   "overriddenProperties":[],
   "parent":{
-    "name":"Environment",
-    "path":"folders/Objects/Environment.yy",
+    "name":"Triggers",
+    "path":"folders/Objects/Triggers.yy",
   },
-  "parentObjectId":{
-    "name":"obj_par_solid",
-    "path":"objects/obj_par_solid/obj_par_solid.yy",
-  },
+  "parentObjectId":null,
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
