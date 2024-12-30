@@ -7,5 +7,4 @@ with (global.scene_drone) {
 with (global.scene_target) {
     instance_destroy();
 }
-
 scene_finished = true;

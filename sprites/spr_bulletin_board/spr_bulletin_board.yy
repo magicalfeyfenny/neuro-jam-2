@@ -2,7 +2,7 @@
   "$GMSprite":"",
   "%Name":"spr_bulletin_board",
   "bboxMode":0,
-  "bbox_bottom":41,
+  "bbox_bottom":63,
   "bbox_left":0,
   "bbox_right":63,
   "bbox_top":0,
@@ -14,8 +14,8 @@
   "frames":[
     {"$GMSpriteFrame":"","%Name":"fa7b377a-e7c3-47ac-b339-fb9adf94f285","name":"fa7b377a-e7c3-47ac-b339-fb9adf94f285","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
-  "gridX":0,
-  "gridY":0,
+  "gridX":1,
+  "gridY":1,
   "height":64,
   "HTile":false,
   "layers":[

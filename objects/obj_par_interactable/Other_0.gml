@@ -1,1 +1,2 @@
-instance_destroy();
+x = xstart;
+y = ystart;

@@ -12,3 +12,21 @@ if player_exists() {
         global.cursor_visible = false;
     }
 }
+
+if global.endgame {
+    global.player_state = playerstate.cutscene;
+    global.fadeout = true;
+}
+
+if global.fadeout {
+    global.fadealpha = approach(global.fadealpha,2,0.01);
+}
+
+if global.fadealpha >= 2 {
+    global.endgame = false;
+    global.fadeout = false
+    global.fadealpha = 0;
+    room_goto(rm_init);
+    audio_stop_sound(wind);
+    audio_stop_sound(_22);
+}

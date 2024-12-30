@@ -177,8 +177,8 @@ switch global.player_state {
         }   
         
         vsp = clamp(vsp,-8,6);
-        
-        var lever_inst = instance_place(x,y,obj_lever);
+        ;var lever_array = [obj_lever,obj_speciallever];
+        var lever_inst = instance_place(x,y,lever_array);
         var inst = instance_place(x,y,obj_metalcrate);
         //picking up objects    
         if input_check_pressed("interact") && !cutscene_mode { 

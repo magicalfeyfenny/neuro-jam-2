@@ -1,4 +1,4 @@
-if ( distance_to_object( obj_player ) < 50 ) {
+if ( distance_to_object( obj_player ) < 4 ) {
     save_allowed = true;
 } else {
     save_allowed = false;

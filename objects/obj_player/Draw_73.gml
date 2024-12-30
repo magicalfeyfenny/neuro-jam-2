@@ -8,7 +8,7 @@ var alphaspd = 0.1;
 var transspd = 0.1;
 
 if !surface_exists(stamina_surf) {
-    stamina_surf = surface_create(room_width,room_height);
+    stamina_surf = surface_create(32,32);
 }
 if (stamina_drain) || (regen_stamina && stamina != staminamax ) {
 
@@ -26,7 +26,7 @@ if (stamina_drain) || (regen_stamina && stamina != staminamax ) {
 surface_set_target(stamina_surf);
 draw_set_color(c_black);
 var stamina_radius = 6;
-draw_circle(stamina_x - 1,(stamina_y) - 1,stamina_radius + 1,false);   
+draw_circle(12-1,12-1,stamina_radius + 1,false);   
 if stamina_drain { 
     var drain_color = merge_color(#ff0000,#ff6f00,color_flash);    
 } else {
@@ -38,11 +38,11 @@ if stamina_drain {
         
 }
     
-draw_pie(stamina_x,stamina_y,stamina,staminamax - 4,drain_color,stamina_radius,1);    
-draw_pie(stamina_x,stamina_y,stamina - 6,staminamax - 4,c_lime,stamina_radius,1);    
+draw_pie(12,12,stamina,staminamax - 4,drain_color,stamina_radius,1);    
+draw_pie(12,12,stamina - 6,staminamax - 4,c_lime,stamina_radius,1);    
 draw_set_color(c_white); 
 surface_reset_target();
-draw_surface_ext(stamina_surf, 0, 0,1,1,0,c_white,stamina_alpha);
+draw_surface_ext(stamina_surf, stamina_x - 12, stamina_y - 12,1,1,0,c_white,stamina_alpha);
 surface_set_target(stamina_surf);
 draw_clear_alpha(c_white,0);
 surface_reset_target();
