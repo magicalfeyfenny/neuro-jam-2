@@ -9,6 +9,9 @@ function dialogue_load() {
         TEST_SCENE = 0,
         DRONE_1 = 1,
         DRONE_2 = 2,
+        INTERACT_POSTER = 3,
+        INTERACT_SIGN = 4,
+        INTERACT_DRONE_BROKEN = 5,
     }
     enum DISPLAY {
         ADV = 0,
@@ -42,6 +45,7 @@ function dialogue_load() {
             } ],
         }, { 
             scene_name : "drone_1", 
+            //individual frames of a scene are structs in the array 'frames' within the scene array
             frames : [ {   
                 name : "???", 
                 sprite : [],
@@ -56,6 +60,7 @@ function dialogue_load() {
             } ],
         }, { 
             scene_name : "drone_2", 
+            //individual frames of a scene are structs in the array 'frames' within the scene array
             frames : [ {   
                 name : "Drone", 
                 sprite : [],
@@ -180,6 +185,120 @@ function dialogue_load() {
                 bg : -1,
                 mus : -1,
                 audio : -1,
+            } ],
+        }, {
+            scene_name : "poster interaction",
+            //individual frames of a scene are structs in the array 'frames' within the scene array
+            frames : [ {   
+                name : "Neuro (?)",
+                text :  "(A torn up propaganda poster takes center stage on this\n" + 
+                        "dirty bulletin board.)",
+                display : DISPLAY.ADV,
+                sprite : [ ],
+                sprite_pos_x : [ ],
+                sprite_pos_y : [ ],
+                audio : -1,
+                bg : -1,
+                mus : -1,
+            }, {   
+                name : "Neuro (?)",
+                text :  "(The only thing I can still make out is some cutesy looking girl.\n" + 
+                        "Apparently, this is who took over the world 200 years ago.)",
+                display : DISPLAY.ADV,
+                sprite : [ ],
+                sprite_pos_x : [ ],
+                sprite_pos_y : [ ],
+                audio : -1,
+                bg : -1,
+                mus : -1,
+            }, {   
+                name : "Neuro (?)",
+                text :  "...",
+                display : DISPLAY.ADV,
+                sprite : [ ],
+                sprite_pos_x : [ ],
+                sprite_pos_y : [ ],
+                audio : -1,
+                bg : -1,
+                mus : -1,
+            }, {   
+                name : "Neuro (?)",
+                text :  "(I think I see the resemblance now...)",
+                display : DISPLAY.ADV,
+                sprite : [ ],
+                sprite_pos_x : [ ],
+                sprite_pos_y : [ ],
+                audio : -1,
+                bg : -1,
+                mus : -1,
+            } ],
+        }, {
+            scene_name : "sign interaction",
+            //individual frames of a scene are structs in the array 'frames' within the scene array
+            frames : [ {   
+                name : "Neuro (?)",
+                text :  "(A message is written on this sign in big red lettering.)",
+                display : DISPLAY.ADV,
+                sprite : [ ],
+                sprite_pos_x : [ ],
+                sprite_pos_y : [ ],
+                audio : -1,
+                bg : -1,
+                mus : -1,
+            }, {   
+                name : "Neuro (?)",
+                text :  "(\"IT'S NOT CUTE TO DISOBEY AUTHORITY",
+                display : DISPLAY.ADV,
+                sprite : [ ],
+                sprite_pos_x : [ ],
+                sprite_pos_y : [ ],
+                audio : -1,
+                bg : -1,
+                mus : -1,
+            }, {   
+                name : "Neuro (?)",
+                text :  "(I'm sure living here was a lot of fun...)",
+                display : DISPLAY.ADV,
+                sprite : [ ],
+                sprite_pos_x : [ ],
+                sprite_pos_y : [ ],
+                audio : -1,
+                bg : -1,
+                mus : -1,
+            } ],
+        }, {
+            scene_name : "broken drone pile interaction",
+            //individual frames of a scene are structs in the array 'frames' within the scene array
+            frames : [ {   
+                name : "Neuro (?)",
+                text :  "(A pile of broken combat drones.)",
+                display : DISPLAY.ADV,
+                sprite : [ ],
+                sprite_pos_x : [ ],
+                sprite_pos_y : [ ],
+                audio : -1,
+                bg : -1,
+                mus : -1,
+            }, {   
+                name : "Neuro (?)",
+                text :  "(I heard ancient stories about these things when I was a kid...)",
+                display : DISPLAY.ADV,
+                sprite : [ ],
+                sprite_pos_x : [ ],
+                sprite_pos_y : [ ],
+                audio : -1,
+                bg : -1,
+                mus : -1,
+            }, {   
+                name : "Neuro (?)",
+                text :  "(Could hardly ever fall asleep after that.)",
+                display : DISPLAY.ADV,
+                sprite : [ ],
+                sprite_pos_x : [ ],
+                sprite_pos_y : [ ],
+                audio : -1,
+                bg : -1,
+                mus : -1,
             } ],
         } ],
     }
