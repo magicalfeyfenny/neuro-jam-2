@@ -1,4 +1,5 @@
 global.scene_target = instance_create_layer( 4300, 330, "Props", obj_testsolid );
+
 global.scene_drone = instance_create_layer( 4800, 360, "Player", obj_drone );
 
 with (global.scene_drone) { 

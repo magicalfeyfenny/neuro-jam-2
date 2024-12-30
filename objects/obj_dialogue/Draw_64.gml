@@ -27,7 +27,6 @@ if ( dialogue_mode ) {
         draw_text( 45, 235, frame.name );
         
         draw_set_font( fn_dialogue_text );
-        
         draw_text( 75, 255, textspew );
     }
     
