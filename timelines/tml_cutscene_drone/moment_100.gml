@@ -8,4 +8,4 @@ with (global.scene_target) {
     instance_destroy();
 }
 
-instance_destroy();
+scene_finished = true;
