@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"snd_dronesound1",
+  "audioGroupId":{
+    "name":"audiogroup_sounds",
+    "path":"audiogroups/audiogroup_sounds",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":0,
+  "conversionMode":0,
+  "duration":3.441964,
+  "name":"snd_dronesound1",
+  "parent":{
+    "name":"Sounds",
+    "path":"folders/Audio/Sounds.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"snd_dronesound1.wav",
+  "type":0,
+  "volume":1.0,
+}
