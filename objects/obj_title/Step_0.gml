@@ -130,21 +130,21 @@ if ( title_input_allow ) {
                     title_input_wait = true;
                     title_input_timer = title_default_delay;
                     switch ( title_cursor_pos ) { //execute menu option
-                        /*case 1: {       //load game
+                        case 1: {       //load game
                             //load the loader menu
                             title_anim = true;
                             title_state = title_load;
                             title_anim_timer = title_timer_default;
                             break;   
-                        } */
-                        case 1: {       //new game 
+                        } 
+                        case 2: {       //new game 
                             title_anim = true;
                             title_state = title_newgame;
                             title_anim_timer = title_timer_default;
                             //move to the game room
                             break;   
                         }
-                        case 2: {       //options
+                        case 3: {       //options
                             //load the options menu
                             temp_options = json_parse(json_stringify(data.options));
                             title_anim = true;
@@ -152,14 +152,14 @@ if ( title_input_allow ) {
                             title_anim_timer = title_timer_default;
                             break;
                         }
-                        case 3: {       //credits
+                        case 4: {       //credits
                             //load the credits menu
                             title_anim = true;
                             title_state = title_credits;
                             title_anim_timer = title_timer_default;
                             break;
                         }
-                        case 4: {       //exit game
+                        case 5: {       //exit game
                             //end the game
                             game_end();
                             break;
@@ -197,7 +197,7 @@ if ( title_input_allow ) {
             if (!title_input_wait) {
                 if (input_check_pressed( [ "interact" ] ) ) {
                     audio_play_sound(snd_select, 0, false);
-                    //data.game = default_game_data.game;
+                    data.game = default_game_data.game;
                     alarm[0] = title_fadeout_time;
                     draw_fadeout = true;
                     title_input_allow = false;

@@ -32,11 +32,11 @@ switch ( title_state ) {
         draw_set_alpha(title_alpha / 2);
         draw_triangle_color( 650, -440, 650, 840, 650 - (320 * title_alpha), 840, c_black, c_black, c_black, false );
         draw_set_alpha(1);
-        //draw_text_color( 524, 206, "Continue", c_white, c_white, c_white, c_white, title_alpha );
-        draw_text_color( 518, 206, "Start Game", c_white, c_white, c_white, c_white, title_alpha );
-        draw_text_color( 512, 230, "Options", c_white, c_white, c_white, c_white, title_alpha );
-        draw_text_color( 506, 254, "Credits", c_white, c_white, c_white, c_white, title_alpha );
-        draw_text_color( 500, 278, "Exit Game", c_white, c_white, c_white, c_white, title_alpha );
+        draw_text_color( 524, 206, "Load Game", c_white, c_white, c_white, c_white, title_alpha );
+        draw_text_color( 518, 230, "New Game", c_white, c_white, c_white, c_white, title_alpha );
+        draw_text_color( 512, 254, "Options", c_white, c_white, c_white, c_white, title_alpha );
+        draw_text_color( 506, 278, "Credits", c_white, c_white, c_white, c_white, title_alpha );
+        draw_text_color( 500, 302, "Exit Game", c_white, c_white, c_white, c_white, title_alpha );
         if ( title_input_allow && title_anim == false) { 
             draw_sprite( spr_title_cursor, 0, 512 - (title_cursor_pos * 6), 192 + (title_cursor_pos * 24) );
         } 
@@ -65,12 +65,12 @@ switch ( title_state ) {
         draw_sprite_stretched_ext( load_sprite, 0, 160, 130, 320, 180, c_white, title_alpha );
         draw_text_color( 50, 50, "Load data", c_white, c_white, c_white, c_white, title_alpha );
         var loc = -1;
-        var loc_str = "No data saved . . .";
+        var loc_str = "Load from your last checkpoint";
         if ( data.game.save_point < array_length(data.save_points.rooms) && data.game.save_point != -1 ) {
             loc = data.game.save_point;
-            loc_str = data.save_points.names[loc];
+            //loc_str = data.save_points.names[loc];
         }
-        var time_hours = string(floor(data.game.time / (60*60*game_get_speed(gamespeed_fps))));
+        /*var time_hours = string(floor(data.game.time / (60*60*game_get_speed(gamespeed_fps))));
         var time_minutes = string(floor(data.game.time / (60*game_get_speed(gamespeed_fps))));
         var time_seconds = string(floor(data.game.time / game_get_speed(gamespeed_fps) ));
         if (string_length(time_hours) == 1) {
@@ -81,9 +81,9 @@ switch ( title_state ) {
         } 
         if (string_length(time_seconds) == 1) {
             time_seconds = "0" + time_seconds;
-        }
-        draw_text( 70, 80, "Location: " + loc_str );
-        draw_text( 70, 104, "Time: " + time_hours + ":" + time_minutes + ":" + time_seconds );
+        }*/
+        draw_text( 70, 80, loc_str );
+        //draw_text( 70, 104, "Time: " + time_hours + ":" + time_minutes + ":" + time_seconds );
         break;
     }
     case title_newgame: {
@@ -105,8 +105,8 @@ switch ( title_state ) {
         draw_set_alpha(title_alpha / 2);
         draw_roundrect_color( 30, 30, 610, 330, c_black, c_black, false );     //change how these look later
         draw_set_alpha(1);
-        draw_text_color( 50, 50, "Start Game", c_white, c_white, c_white, c_white, title_alpha );
-        draw_text_color( 70, 80, "Start from the last checkpoint.", c_white, c_white, c_white, c_white, title_alpha );
+        draw_text_color( 50, 50, "New Game", c_white, c_white, c_white, c_white, title_alpha );
+        draw_text_color( 70, 80, "Start from the beginning", c_white, c_white, c_white, c_white, title_alpha );
         draw_sprite_stretched_ext( load_sprite, 0, 160, 130, 320, 180, c_white, title_alpha );
         break;
     }
