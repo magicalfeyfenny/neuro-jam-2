@@ -93,3 +93,10 @@ if (room == rm_level1 && data.game.lv1_scene_played == false) {
 } else {
     global.player_state = playerstate.grounded;
 }
+
+global.bodyretrieved = false;
+
+global.respawn_x = xstart;
+global.respawn_y = ystart;
+
+global.reachedrespawn = false;

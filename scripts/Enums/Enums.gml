@@ -15,5 +15,6 @@ enum playerstate {
 enum dronestate {
     hover,
     execute_action,
-    cutscene
+    cutscene,
+    retrieveplayer
 }

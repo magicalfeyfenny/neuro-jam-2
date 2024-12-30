@@ -121,7 +121,8 @@ switch global.player_state {
         
         if touching_wall == 0 || onground {
             //normal jumping
-            if initiate_jump == true && jumpcount < jumpmax {
+            if initiate_jump == true && jumpcount < jumpmax { 
+                audio_play_sound(jump,1,false,1,0,random_range(0.95,1.05));
                 jumpcount++;
                 jumptimer = jumpframes;
                 if vsp != 0 {	
@@ -170,36 +171,68 @@ switch global.player_state {
         
         vsp = clamp(vsp,-8,6);
         
+        var lever_inst = instance_place(x,y,obj_lever);
         //picking up objects    
-        if (input_check_pressed("interact") && !cutscene_mode) { 
+        if input_check_pressed("interact") && !cutscene_mode { 
             if instance_holding != noone {
-                if instance_holding.interacted {
-                    instance_holding.interacted = false;
-                    instance_holding.interacter = noone;   
-                    instance_holding.set_positions = false;   
-                    instance_holding.hsp = hsp;
-                    instance_holding.vsp = vsp;
-                    instance_holding = noone;
-                    holding_object = false;     
-                }
+                    with instance_holding {
+                        if !place_meeting(x,y,global.col) {
+                            if interacted {
+                                interacted = false;
+                                interacter = noone;   
+                                set_positions = false;   
+                                hsp = other.hsp;
+                                vsp = other.vsp;
+                                other.instance_holding = noone;
+                                other.holding_object = false;  
+                            }
+                        }
+
+                    }
             } else {
                 if place_meeting(x,y,obj_par_interactable) && onground && instance_holding == noone && holding_object == false { 
                     var inst = instance_place(x,y,obj_par_interactable);
-                    if inst.holdable {
-                        if inst.interacted == false {
-                            inst.interacted = true;
-                            inst.interacter = object_index;  
-                            inst.hsp = 0;
-                            inst.vsp = 0;
-                            holding_object = true;              
-                            instance_holding = inst;       
-                        }
-                    }    
+                    if lever_inst == noone {  
+                        if inst.holdable {
+                            if inst.interacted == false {
+                                inst.interacted = true;
+                                inst.interacter = object_index;  
+                                inst.hsp = 0;
+                                inst.vsp = 0;
+                                holding_object = true;              
+                                instance_holding = inst;       
+                            }
+                        } else if lever_inst == noone {
+                            if inst.interacted == false {
+                                inst.interacted = true;
+                            } else {
+                                inst.interacted = false;
+                            }
+                        }              
+                    }             
                 }
             }
         }
+        
+        if lever_inst != noone && lever_inst.interacter != obj_drone {
+            if input_check("interact") {
+                if onground && instance_holding == noone && holding_object == false  && !cutscene_mode  { 
+                    if lever_inst != noone {
+                        lever_inst.interacted = true;
+                        lever_inst.interacter = object_index;
+                    }
+                        
+                }
+            } else if !input_check("interact") {
+                if lever_inst != noone {
+                    lever_inst.interacted = false;
+                    lever_inst.interacter = noone;
+                }    
+            }
+        }
+
     
-        if ( input_check_pressed("command") && instance_exists(obj_drone) && !cutscene_mode ) {
+        if input_check_pressed("command") && instance_exists(obj_drone) && !cutscene_mode{
             global.player_state = playerstate.commanding;
             border_flash_state = 0;
             var center_x = window_get_x() + window_get_width()/2
@@ -243,7 +276,6 @@ switch global.player_state {
                 }
             } else { 
                 obj_drone.sprite_index = spr_playerflying;
-                sprite_index = spr_blank;
                 x = obj_drone.x;
                 y = obj_drone.y + fly_y; 
                 regen_stamina = false;
@@ -298,7 +330,6 @@ switch global.player_state {
     y += vsp;
     
     rotation = approach(rotation,0,1);
-    
     break;
     
     //cutscene state
@@ -342,6 +373,34 @@ switch global.player_state {
     
     rotation = approach(rotation,0,1);
     break;
+    
+    //dead state
+    case playerstate.dead:
+    if global.bodyretrieved == false { 
+        sprite_index = spr_playerdead;
+        
+        hsp = approach(hsp,0,0.05);
+        
+        vsp += grv;
+        
+        vsp = clamp(vsp,-8,6);
+        
+        x += hsp;
+        
+        y += vsp;
+        
+        rotation += 4;    
+    } else {
+        hsp = 0;
+        vsp = 0;
+        rotation = 0;
+        sprite_index = spr_blank;
+    }
+
+    
+    break;
+    
+    
 }
 
 var flashspd = 0.1;
@@ -376,31 +435,47 @@ if border_flash_state == 0 && border_flash_state != 2{
 
 
 mask_index = spr_playertest;
-if !climbing {
-    if onground {
-        if sprite_index != spr_playerjump && landtimer > 6 {
-            if hsp != 0 {
-                sprite_index = spr_playerwalk;
-                image_speed = hsp/walkspmax;
-            } else if hsp == 0 {
-                sprite_index = spr_playeridle;
-                image_speed = 0;
+if global.player_state != playerstate.dead {
+    if !climbing {
+        if onground {
+            if sprite_index != spr_playerjump && landtimer > 6 {
+                if hsp != 0 {
+                    sprite_index = spr_playerwalk;
+                    image_speed = hsp/walkspmax;
+                } else if hsp == 0 {
+                    sprite_index = spr_playeridle;
+                    image_speed = 0;
+                }
+            } else {
+                sprite_index = spr_playerland;
+                landtimer++;
             }
         } else {
-            sprite_index = spr_playerland;
-            landtimer++;
+            if sliding == 0 {
+                sprite_index = spr_playerjump; 
+                image_speed = 0;       
+            } else { 
+                sprite_index = spr_playerslide; 
+                image_speed = 0;   
+            }
+                
         }
     } else {
-        if sliding == 0 {
-            sprite_index = spr_playerjump; 
-            image_speed = 0;       
-        } else { 
-            sprite_index = spr_playerslide; 
-            image_speed = 0;   
-        }
-            
+        sprite_index = spr_playerwallclimb;
+        image_speed = vsp/walkspmax;
     }
-} else {
-    sprite_index = spr_playerwallclimb;
-    image_speed = vsp/walkspmax;
 }
+
+if place_meeting(x,y,obj_par_danger) && global.player_state != playerstate.dead {
+    screenshake(6,15);
+    hsp = choose(-3,3);
+    vsp = -8;
+    global.player_state = playerstate.dead;
+    stamina = staminamax;
+    regen_stamina = true;
+    stamina_drain = false;
+    obj_drone.sprite_index = spr_dronetest2
+    audio_play_sound(hurt_death,1,false);
+}
+
+audio_listener_position(x, y - 12, 0);

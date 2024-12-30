@@ -44,7 +44,7 @@ if player_exists() && instance_exists(obj_drone) {
         var inst = instance_position(mouse_x,mouse_y,obj_par_interactable)
         if inst != noone {
             if interacter != obj_drone {
-                flashing = true;
+                inst.flashing = true;
             }    
             if input_check_pressed("interact") && obj_drone.drone_action_registered == false && obj_drone.holding_object == false    {
                 global.drone_state = dronestate.execute_action;
@@ -52,9 +52,9 @@ if player_exists() && instance_exists(obj_drone) {
                 obj_drone.drone_action_registered = true;
             }
         } else {
-            flashing = false;   
+            self.flashing = false;   
         }
     } else {
-        flashing = false; 
+        self.flashing = false; 
     }
 }
