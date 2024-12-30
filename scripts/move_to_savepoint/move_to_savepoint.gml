@@ -45,6 +45,10 @@ function generate_savepoints( ) {
 function move_to_savepoint( goto, player ) {
     //if the save data's current save point exists in the room, move the player to that save point
     if ( data.save_points.rooms[ goto ] == room ) {
+        with ( instance_position(data.save_points.position.x[goto], data.save_points.position.y[goto], obj_checkpoint) ) {    //if it's a checkpoint, disable it
+            save_allowed = false;
+            spawned_in = true;
+        }
         player.x = data.save_points.position.x[ goto ];        //rename to whatever object name is being used for the player
         player.y = data.save_points.position.y[ goto ];   
     }
