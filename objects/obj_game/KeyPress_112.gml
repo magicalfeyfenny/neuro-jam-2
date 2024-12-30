@@ -1,1 +1,1 @@
-global.debug = !global.debug;
+//global.debug = !global.debug;

@@ -176,7 +176,7 @@ switch ( title_state ) {
         draw_roundrect_color( 30, 30, 610, 330, c_black, c_black, false );     //change how these look later
         draw_set_alpha(1);
         draw_text_color( 50, 50, "Credits", c_white, c_white, c_white, c_white, title_alpha );
-        draw_text_color( 70, 80, "Scenario:", c_white, c_white, c_white, c_white, title_alpha );
+        draw_text_color( 70, 80, "Writing:", c_white, c_white, c_white, c_white, title_alpha );
         draw_text_color( 90, 104, "noellepunk", c_white, c_white, c_white, c_white, title_alpha );
         draw_text_color( 70, 128, "Programming:", c_white, c_white, c_white, c_white, title_alpha );
         draw_text_color( 90, 152, "noellepunk", c_white, c_white, c_white, c_white, title_alpha );

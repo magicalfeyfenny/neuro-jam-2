@@ -2,8 +2,8 @@
   "$GMSound":"",
   "%Name":"_22",
   "audioGroupId":{
-    "name":"audiogroup_default",
-    "path":"audiogroups/audiogroup_default",
+    "name":"audiogroup_music",
+    "path":"audiogroups/audiogroup_music",
   },
   "bitDepth":1,
   "bitRate":128,
@@ -21,5 +21,5 @@
   "sampleRate":44100,
   "soundFile":"_22.ogg",
   "type":0,
-  "volume":0.3,
+  "volume":1.0,
 }

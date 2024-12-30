@@ -6,7 +6,7 @@ event_inherited();
 
     if interacted {
         lever_rotation = approach(lever_rotation,lever_rot_target,lever_spd);
-        if lever_rotation <= lever_rot_target/2 {
+        if lever_rotation <= lever_rot_target {
             if activated != true {
                 audio_play_sound(snd_switch,1,false,1,0,0.9);
             }

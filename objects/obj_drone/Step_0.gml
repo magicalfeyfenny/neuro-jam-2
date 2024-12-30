@@ -14,7 +14,9 @@ switch global.drone_state {
         if !cutscene_mode {
             if obj_player.climbing == false {
                 with drone_follow_target {
-                    if place_meeting(x,y,obj_par_interactable) || holding_object || other.holding_object {
+                    var inst = instance_position(x,y,obj_par_interactable)
+                    var lever_inst = instance_position(x,y,obj_lever)
+                    if (lever_inst == noone && inst != noone) || holding_object || other.holding_object {
                         other.idle_hover_point_x = x; 
                         other.idle_hover_point_y = y - 80;
                     } else {
