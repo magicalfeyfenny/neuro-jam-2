@@ -1,5 +1,5 @@
 //global game object to handle all backend stuff
-global.debug = true;
+global.debug = false;
 
 //array of all solid objects/tilemaps
 global.col = [obj_par_solid];

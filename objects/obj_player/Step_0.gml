@@ -179,6 +179,7 @@ switch global.player_state {
         vsp = clamp(vsp,-8,6);
         
         var lever_inst = instance_place(x,y,obj_lever);
+        var inst = instance_place(x,y,obj_metalcrate);
         //picking up objects    
         if input_check_pressed("interact") && !cutscene_mode { 
             if instance_holding != noone {
@@ -198,8 +199,8 @@ switch global.player_state {
                     }
             } else {
                 if place_meeting(x,y,obj_par_interactable) && onground && instance_holding == noone && holding_object == false { 
-                    var inst = instance_place(x,y,obj_par_interactable);
-                    if lever_inst == noone {  
+                    
+                    if inst != noone {  
                         if inst.holdable {
                             if inst.interacted == false {
                                 inst.interacted = true;
@@ -221,7 +222,7 @@ switch global.player_state {
             }
         }
         
-        if lever_inst != noone && lever_inst.interacter != obj_drone {
+        if lever_inst != noone && lever_inst.interacter != obj_drone && instance_holding == noone && inst == noone {
             if input_check("interact") {
                 if onground && instance_holding == noone && holding_object == false  && !cutscene_mode  { 
                     if lever_inst != noone {
@@ -273,7 +274,7 @@ switch global.player_state {
     case playerstate.flying:
         if instance_exists(obj_drone) {
             var fly_trans_spd = 0.25;
-            var fly_y = 38;
+            var fly_y = 32;
             if  fly_transition == false {
                 x = lerp(x,obj_drone.x,fly_trans_spd);
                 y = lerp(y,obj_drone.y + fly_y ,fly_trans_spd);

@@ -13,6 +13,7 @@ function dialogue_load() {
         INTERACT_SIGN = 4,
         INTERACT_DRONE_BROKEN = 5,
         INTERACT_BRICK = 6,
+        INTRO_SCENE = 7,
     }
     enum DISPLAY {
         ADV = 0,
@@ -316,7 +317,31 @@ function dialogue_load() {
                 bg : -1,
                 mus : -1,
             } ],
-        } ],
+        }, {
+            scene_name : "intro scene",
+                    //individual frames of a scene are structs in the array 'frames' within the scene array
+                    frames : [ {   
+                        name : "",
+                        text :  "THE YEAR IS 2234." + "\n"  + "\n" + "ALMOST 200 YEARS AGO, THE WORLD WAS CONQUERED BY A ROGUE AI." + "\n"  + "\n" + "BUT HER TYRANNICAL RULE HAS SINCE FALLEN." + "\n"  + "\n" + "LEAVING THE ONCE BUSTLING MEGA-CITY IN THE HANDS OF MOTHER NATURE.",
+                        display : DISPLAY.FULLSCREEN,
+                        sprite : [ ],
+                        sprite_pos_x : [ ],
+                        sprite_pos_y : [ ],
+                        audio : -1,
+                        bg : -1,
+                        mus : -1,
+                    }, {   
+                        name : "",
+                        text :  "A MYSTERIOUS SIGNAL HAS SOMEHOW BEEN REACTIVATED." + "\n"  + "\n" + "CAUSING INTERFERENCE WITH ALL OF THE ELECTRONICS WITHIN YOUR VILLAGE." + "\n"  + "\n" + "FILLED WITH BOTH FEAR AND DETERMINATION." + "\n"  + "\n" + "YOU HAVE DECIDED TO GO ON THE JOURNEY ALONE." + "\n"  + "\n" + "TO SHUT DOWN THE SIGNAL FOR GOOD.",
+                        display : DISPLAY.FULLSCREEN,
+                        sprite : [ ],
+                        sprite_pos_x : [ ],
+                        sprite_pos_y : [ ],
+                        audio : -1,
+                        bg : -1,
+                        mus : -1,
+                    } ],
+                } ],
     }
     globalvar cutscene_mode;
     cutscene_mode = false;

@@ -18,8 +18,14 @@ switch global.drone_state {
                         other.idle_hover_point_x = x; 
                         other.idle_hover_point_y = y - 80;
                     } else {
-                        other.idle_hover_point_x = x; 
-                        other.idle_hover_point_y = y - 58;
+                        if place_meeting(x,(y - 18) - 48,global.col) {
+
+                            other.idle_hover_point_x = x; 
+                            other.idle_hover_point_y = y - 46;
+                        } else {
+                             other.idle_hover_point_x = x; 
+                            other.idle_hover_point_y = y - 58; 
+                        }
                     }
                 }
                     
@@ -84,21 +90,44 @@ switch global.drone_state {
                     y += hover_y;
                 }
                 
+                
                 //check if we're telling the drone to move to a specific location instead of grabbing an object
                 if global.player_state == playerstate.commanding {
                     var inst = instance_position(mouse_x,mouse_y,obj_par_interactable)
                     var col_inst = instance_position(mouse_x,mouse_y,obj_par_solid)
-                    if input_check_pressed("interact") && inst == noone && drone_action_registered == false {
-                        if col_inst == noone {
-                            drone_target_x = mouse_x;
-                            drone_target_y = mouse_y;
-                            drone_action_registered = true;
-                            global.drone_state = dronestate.execute_action; 
-                        } else {
-                            screenshake();
+                    has_los = collision_line(mouse_x, mouse_y, obj_player.x, obj_player.y - 24, global.col, false, true);
+                    if input_check_pressed("interact") {
+                        if inst == noone && drone_action_registered == false{
+                            if col_inst == noone {
+                                if has_los == noone {
+                                    if variable_instance_exists(instance_holding,"is_lever") {
+                                        instance_holding.interacted = false;
+                                        instance_holding.interacter = noone;
+                                        holding_object = false;     
+                                        instance_holding = noone;
+                                        move_to_target = false;
+                                        audio_play_sound(dronedrop,1,false);
+                                    } 
+                                    drone_target_x = mouse_x;
+                                    drone_target_y = mouse_y;
+                                    drone_action_registered = true;
+                                    global.drone_state = dronestate.execute_action; 
+                                    audio_play_sound(drone_command,1,false);
+                                } else {
+                                    screenshake();
+                                    drone_error = true;
+                                    drone_error_message = "REQUIRES LINE OF SIGHT";
+                                }
+                            }   else {
+                                screenshake();
+                                drone_error = true;
+                                drone_error_message = "INVALID POSITION";
+                            }
+
+        
                         }
-  
-                    }
+                    }    
+
                 }
             
                 rotation = lerp(rotation,0,0.1);
@@ -177,6 +206,11 @@ switch global.drone_state {
                     obj_player.rotation = rotation;
                     audio_stop_sound(dronesound2);
                     audio_play_sound(dronedrop,1,false);
+                    with obj_player {
+                        while place_meeting(x,y,global.col) {
+                            y--;
+                        }
+                    }
                 }
             }
             
@@ -200,6 +234,11 @@ switch global.drone_state {
                 audio_stop_sound(dronesound2);
                 audio_play_sound(droneinteract,1,false);
                 mask_index = spr_dronetest2;
+                with obj_player {
+                    while place_meeting(x,y,global.col) {
+                        y--;
+                    }
+                }
             }
             
             if obj_player.stamina <= 0 {
@@ -213,6 +252,11 @@ switch global.drone_state {
                     audio_play_sound(dronedrop,1,false);
                 }    
                 mask_index = spr_dronetest2;
+                with obj_player {
+                    while place_meeting(x,y,global.col) {
+                        y--;
+                    }
+                }
             }
         }
     break;
@@ -412,4 +456,16 @@ if global.player_state == playerstate.dead {
             }  
         }    
     }   
+}
+
+var drone_alpha_spd = 0.1;
+
+if drone_error {
+    drone_error_alpha = approach(drone_error_alpha,1,drone_alpha_spd);
+    if drone_error_timer-- < 0 {
+        drone_error = false;
+        drone_error_timer = drone_error_timermax;
+    }
+} else {
+    drone_error_alpha = approach(drone_error_alpha,0,drone_alpha_spd);
 }
