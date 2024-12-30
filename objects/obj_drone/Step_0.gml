@@ -56,8 +56,8 @@ switch global.drone_state {
                 path_start(path, pathspd, path_action_stop, true);
             }
         }*/
-    var offset = 32;
-    var pathspd = 3;
+        var offset = 32;
+        var pathspd = 3;
         switch global.player_state {
 
             default:

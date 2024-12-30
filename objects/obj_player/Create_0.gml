@@ -86,9 +86,10 @@ landtimer = 0;
 cutscene_move = 0;
 
 //player state
-if room == rm_level1 {
+if (room == rm_level1 && data.game.lv1_scene_played == false) {
     global.player_state = playerstate.cutscene;
     cutscene_move = 1;
+    data.game.lv1_scene_played = true;
 } else {
     global.player_state = playerstate.grounded;
 }

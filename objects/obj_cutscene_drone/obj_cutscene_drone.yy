@@ -10,8 +10,8 @@
   "name":"obj_cutscene_drone",
   "overriddenProperties":[],
   "parent":{
-    "name":"Environment",
-    "path":"folders/Objects/Environment.yy",
+    "name":"Triggers",
+    "path":"folders/Objects/Triggers.yy",
   },
   "parentObjectId":null,
   "persistent":false,

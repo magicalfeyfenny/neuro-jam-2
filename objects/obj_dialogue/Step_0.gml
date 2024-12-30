@@ -33,9 +33,10 @@ if ( dialogue_mode ) {
                 spewlength++;
             }
             textlinefadein++;
-            if ( input_check_pressed( confirm_input ) ) {
+            if ( input_check_pressed( "interact" ) && input_got ) {
                 textlinefadein = 1000;
-                input_clear_momentary( confirm_input);
+                input_got = true;
+                //input_clear_momentary( "interact" );
             }
             if ( textlinefadein >= 60 + (90 * textlinecount) ) {
                 text_advance_ready = TEXT.READY;
@@ -43,12 +44,17 @@ if ( dialogue_mode ) {
         }
         
         if ( frame.display == DISPLAY.ADV ) {
-            textspew += string_char_at(frame.text, spewlength);
-            spewlength++;
-            if ( input_check_pressed( confirm_input ) ) {
-                textspew = frame.text;
-                input_clear_momentary( confirm_input );
+            if (!skipper) {
+                textspew += string_char_at(frame.text, spewlength);
+                spewlength++;
+                skipper = true;
+            } else {
+                skipper = false;
             }
+            if ( input_check_pressed( "interact" ) && !input_got ) {
+                textspew = frame.text;
+                input_got = true;
+            }   
             if (textspew == frame.text ) {
                 text_advance_ready = TEXT.READY;
             }
@@ -56,8 +62,8 @@ if ( dialogue_mode ) {
     }
     
     if (text_advance_ready == TEXT.READY ) {
-        if ( input_check_pressed( confirm_input ) ) {
-            textlinefadein = 0;
+        if ( input_check_pressed( "interact" ) && !input_got ) {
+            textlinefadein = 0; 
             text_advance_ready = TEXT.LOADING;
             if (ds_queue_empty(frames_queue) ) {
                 dialogue_mode = false;
@@ -87,3 +93,5 @@ if (audio_play == true) {
     audio_play_sound( frame.audio, 0, false );
     audio_play = false;
 }
+
+input_got = false;
