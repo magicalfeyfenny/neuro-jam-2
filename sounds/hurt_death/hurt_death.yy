@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":2.370536,
+  "duration":2.65625,
   "name":"hurt_death",
   "parent":{
     "name":"Player",
