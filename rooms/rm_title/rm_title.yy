@@ -17,8 +17,8 @@
   ],
   "name":"rm_title",
   "parent":{
-    "name":"Rooms",
-    "path":"folders/Rooms.yy",
+    "name":"Triggers",
+    "path":"folders/Objects/Triggers.yy",
   },
   "parentRoom":null,
   "physicsSettings":{

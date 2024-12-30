@@ -84,7 +84,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.11.0.179",
+    "IDEVersion":"2024.1100.0.713",
   },
   "name":"neuro-jam-2",
   "resources":[
@@ -112,6 +112,7 @@
     {"id":{"name":"obj_loader","path":"objects/obj_loader/obj_loader.yy",},},
     {"id":{"name":"obj_metalcrate","path":"objects/obj_metalcrate/obj_metalcrate.yy",},},
     {"id":{"name":"obj_neurogameapi","path":"objects/obj_neurogameapi/obj_neurogameapi.yy",},},
+    {"id":{"name":"obj_nextroom_teleport","path":"objects/obj_nextroom_teleport/obj_nextroom_teleport.yy",},},
     {"id":{"name":"obj_par_danger","path":"objects/obj_par_danger/obj_par_danger.yy",},},
     {"id":{"name":"obj_par_interactable","path":"objects/obj_par_interactable/obj_par_interactable.yy",},},
     {"id":{"name":"obj_par_solid","path":"objects/obj_par_solid/obj_par_solid.yy",},},
@@ -544,6 +545,7 @@
     {"id":{"name":"spr_spike","path":"sprites/spr_spike/spr_spike.yy",},},
     {"id":{"name":"spr_talk_neuro","path":"sprites/spr_talk_neuro/spr_talk_neuro.yy",},},
     {"id":{"name":"spr_target","path":"sprites/spr_target/spr_target.yy",},},
+    {"id":{"name":"spr_teleport_collision","path":"sprites/spr_teleport_collision/spr_teleport_collision.yy",},},
     {"id":{"name":"spr_testcrate","path":"sprites/spr_testcrate/spr_testcrate.yy",},},
     {"id":{"name":"spr_testsolid","path":"sprites/spr_testsolid/spr_testsolid.yy",},},
     {"id":{"name":"spr_text_arrow","path":"sprites/spr_text_arrow/spr_text_arrow.yy",},},
