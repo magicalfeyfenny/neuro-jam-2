@@ -21,10 +21,10 @@ function __input_config_verbs()
             right: [input_binding_key(vk_right)],
             
             
-            interact:  [input_binding_key("X"), input_binding_mouse_button(mb_left)], //drone interact
-            climb : [input_binding_key("Z")], //drone drop
-            jump: [input_binding_key("C")], //drone recall
-            command: [input_binding_key("V")],
+            interact:   [input_binding_key("X"), input_binding_mouse_button(mb_left)], //drone interact
+            climb:      [input_binding_key("Z")], //drone drop
+            jump:       [input_binding_key("C")], //drone recall
+            command:    [input_binding_key("V")],
             
             pause: input_binding_key(vk_escape),
         },

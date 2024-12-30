@@ -79,7 +79,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.11.0.179",
+    "IDEVersion":"2024.1100.0.713",
   },
   "name":"neuro-jam-2",
   "resources":[
@@ -488,6 +488,7 @@
     {"id":{"name":"spr_save_data","path":"sprites/spr_save_data/spr_save_data.yy",},},
     {"id":{"name":"spr_savepoint","path":"sprites/spr_savepoint/spr_savepoint.yy",},},
     {"id":{"name":"spr_talk_neuro","path":"sprites/spr_talk_neuro/spr_talk_neuro.yy",},},
+    {"id":{"name":"spr_target","path":"sprites/spr_target/spr_target.yy",},},
     {"id":{"name":"spr_testcrate","path":"sprites/spr_testcrate/spr_testcrate.yy",},},
     {"id":{"name":"spr_testsolid","path":"sprites/spr_testsolid/spr_testsolid.yy",},},
     {"id":{"name":"spr_text_arrow","path":"sprites/spr_text_arrow/spr_text_arrow.yy",},},
@@ -507,6 +508,7 @@
     {"id":{"name":"ts_bg","path":"tilesets/ts_bg/ts_bg.yy",},},
     {"id":{"name":"ts_ground","path":"tilesets/ts_ground/ts_ground.yy",},},
     {"id":{"name":"ts_plchldr","path":"tilesets/ts_plchldr/ts_plchldr.yy",},},
+    {"id":{"name":"tml_cutscene_drone","path":"timelines/tml_cutscene_drone/tml_cutscene_drone.yy",},},
     {"id":{"name":"tml_cutscene_test","path":"timelines/tml_cutscene_test/tml_cutscene_test.yy",},},
   ],
   "resourceType":"GMProject",

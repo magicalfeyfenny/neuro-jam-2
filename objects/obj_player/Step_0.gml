@@ -171,7 +171,7 @@ switch global.player_state {
         vsp = clamp(vsp,-8,6);
         
         //picking up objects    
-        if input_check_pressed("interact") && !cutscene_mode { 
+        if (input_check_pressed("interact") && !cutscene_mode) { 
             if instance_holding != noone {
                 if instance_holding.interacted {
                     instance_holding.interacted = false;
@@ -197,11 +197,9 @@ switch global.player_state {
                     }    
                 }
             }
-            
-
         }
     
-        if input_check_pressed("command") && instance_exists(obj_drone) && !cutscene_mode{
+        if ( input_check_pressed("command") && instance_exists(obj_drone) && !cutscene_mode ) {
             global.player_state = playerstate.commanding;
             border_flash_state = 0;
             var center_x = window_get_x() + window_get_width()/2
@@ -301,6 +299,8 @@ switch global.player_state {
     
     rotation = approach(rotation,0,1);
     
+    break;
+    
     //cutscene state
     case playerstate.cutscene:
     
@@ -341,7 +341,6 @@ switch global.player_state {
     y += vsp;
     
     rotation = approach(rotation,0,1);
-    break;
     break;
 }
 

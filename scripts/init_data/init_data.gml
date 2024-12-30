@@ -7,6 +7,7 @@ function init_data() {
             default_start_room : rm_level1,
             time : 0,
             //add game-specific data / event flags here
+            lv1_scene_played : false,
         },
         options : {
             fullscreen : true,
