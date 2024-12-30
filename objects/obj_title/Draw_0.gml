@@ -62,7 +62,7 @@ switch ( title_state ) {
         draw_set_alpha(title_alpha / 2);
         draw_roundrect_color( 30, 30, 610, 330, c_black, c_black, false );     //change how these look later 
         draw_set_alpha(1);
-        draw_sprite_stretched_ext( load_sprite, 0, 160, 120, 320, 180, c_white, title_alpha );
+        draw_sprite_stretched_ext( load_sprite, 0, 160, 130, 320, 180, c_white, title_alpha );
         draw_text_color( 50, 50, "Load data", c_white, c_white, c_white, c_white, title_alpha );
         var loc = -1;
         var loc_str = "No data saved . . .";
@@ -83,7 +83,7 @@ switch ( title_state ) {
             time_seconds = "0" + time_seconds;
         }
         draw_text( 70, 80, "Location: " + loc_str );
-        draw_text( 70, 100, "Time: " + time_hours + ":" + time_minutes + ":" + time_seconds );
+        draw_text( 70, 104, "Time: " + time_hours + ":" + time_minutes + ":" + time_seconds );
         break;
     }
     case title_newgame: {
@@ -107,7 +107,7 @@ switch ( title_state ) {
         draw_set_alpha(1);
         draw_text_color( 50, 50, "New game", c_white, c_white, c_white, c_white, title_alpha );
         draw_text_color( 70, 80, "Start a new file", c_white, c_white, c_white, c_white, title_alpha );
-        draw_text_color( 70, 100, "Saving will overwrite your current file.", c_white, c_white, c_white, c_white, title_alpha );
+        draw_text_color( 70, 104, "Saving will overwrite your current file.", c_white, c_white, c_white, c_white, title_alpha );
         break;
     }
     case title_options: { 
@@ -139,19 +139,19 @@ switch ( title_state ) {
         if ( temp_options.vsync == true ) {
             vsync_on = "on";
         }
-        draw_text_color( 70, 100, "VSync: " + vsync_on, c_white, c_white, c_white, c_white, title_alpha);
+        draw_text_color( 70, 104, "VSync: " + vsync_on, c_white, c_white, c_white, c_white, title_alpha);
         var music_vol = string(temp_options.volume_music);
-        draw_text_color( 70, 120, "Music volume: " + music_vol, c_white, c_white, c_white, c_white, title_alpha );
+        draw_text_color( 70, 128, "Music volume: " + music_vol, c_white, c_white, c_white, c_white, title_alpha );
         var sound_vol = string(temp_options.volume_sound);
-        draw_text_color( 70, 140, "Sound volume: " + sound_vol, c_white, c_white, c_white, c_white, title_alpha );
-        draw_text_color( 70, 250, "Defaults", c_white, c_white, c_white, c_white, title_alpha );
-        draw_text_color( 70, 270, "Save changes", c_white, c_white, c_white, c_white, title_alpha );
+        draw_text_color( 70, 152, "Sound volume: " + sound_vol, c_white, c_white, c_white, c_white, title_alpha );
+        draw_text_color( 70, 242, "Defaults", c_white, c_white, c_white, c_white, title_alpha );
+        draw_text_color( 70, 266, "Save changes", c_white, c_white, c_white, c_white, title_alpha );
         draw_text_color( 70, 290, "Discard changes", c_white, c_white, c_white, c_white, title_alpha );
         if ( title_input_allow && title_anim == false) { 
             if (title_cursor_pos <= (title_cursor_maxpos - 3)) {
-                draw_sprite( spr_title_cursor, 0, 50, 70 + ( title_cursor_pos * 20 ) );
+                draw_sprite( spr_title_cursor, 0, 50, 68 + ( title_cursor_pos * 24 ) );
             } else {
-                draw_sprite( spr_title_cursor, 0, 50, 240 + ( ( title_cursor_pos - ( title_cursor_maxpos - 3 ) ) * 20) );
+                draw_sprite( spr_title_cursor, 0, 50, 230 + ( ( title_cursor_pos - ( title_cursor_maxpos - 3 ) ) * 24) );
             }
         }
         break;
@@ -177,14 +177,14 @@ switch ( title_state ) {
         draw_set_alpha(1);
         draw_text_color( 50, 50, "Credits", c_white, c_white, c_white, c_white, title_alpha );
         draw_text_color( 70, 80, "Scenario:", c_white, c_white, c_white, c_white, title_alpha );
-        draw_text_color( 90, 100, "noellepunk", c_white, c_white, c_white, c_white, title_alpha );
-        draw_text_color( 70, 120, "Programming:", c_white, c_white, c_white, c_white, title_alpha );
-        draw_text_color( 90, 140, "noellepunk", c_white, c_white, c_white, c_white, title_alpha );
-        draw_text_color( 90, 160, "magicalfeyfenny", c_white, c_white, c_white, c_white, title_alpha );
-        draw_text_color( 70, 180, "Art/Visuals:", c_white, c_white, c_white, c_white, title_alpha );
-        draw_text_color( 90, 200, "sasumeat", c_white, c_white, c_white, c_white, title_alpha );
-        draw_text_color( 70, 220, "Sound/Music:", c_white, c_white, c_white, c_white, title_alpha );
-        draw_text_color( 90, 240, "masn47", c_white, c_white, c_white, c_white, title_alpha );
+        draw_text_color( 90, 104, "noellepunk", c_white, c_white, c_white, c_white, title_alpha );
+        draw_text_color( 70, 128, "Programming:", c_white, c_white, c_white, c_white, title_alpha );
+        draw_text_color( 90, 152, "noellepunk", c_white, c_white, c_white, c_white, title_alpha );
+        draw_text_color( 90, 176, "magicalfeyfenny", c_white, c_white, c_white, c_white, title_alpha );
+        draw_text_color( 70, 200, "Art/Visuals:", c_white, c_white, c_white, c_white, title_alpha );
+        draw_text_color( 90, 224, "sasumeat", c_white, c_white, c_white, c_white, title_alpha );
+        draw_text_color( 70, 248, "Sound/Music:", c_white, c_white, c_white, c_white, title_alpha );
+        draw_text_color( 90, 272, "masn47", c_white, c_white, c_white, c_white, title_alpha );
         break;
     }
 }
