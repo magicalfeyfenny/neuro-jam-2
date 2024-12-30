@@ -4,7 +4,7 @@ function init_data() {
     data = {
         game : { 
             save_point : -1,
-            default_start_room : rm_level2,
+            default_start_room : rm_intro,
             time : 0,
             //add game-specific data / event flags here
             lv1_scene_played : false,

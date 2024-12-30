@@ -1,4 +1,4 @@
-function screenshake(_magnitude = 4,_frames = 10){
+function screenshake(_magnitude = 1,_frames = 15){
     with obj_camera {
         if _magnitude > shake_remain {
             shake_magnitude = _magnitude;

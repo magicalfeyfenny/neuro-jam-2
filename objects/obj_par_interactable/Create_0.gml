@@ -10,4 +10,6 @@ flash_state = 0;
 
 flash_blend = c_white;
 
-hitground = false;
+hitground = true;
+
+has_player_los = noone;

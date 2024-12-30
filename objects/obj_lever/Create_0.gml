@@ -10,3 +10,5 @@ lever__return_spd = 10;
 lever_rot_target = -90;
 
 is_lever = true;
+
+interactable = true;

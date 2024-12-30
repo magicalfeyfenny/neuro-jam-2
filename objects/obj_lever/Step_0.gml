@@ -2,23 +2,26 @@
 event_inherited();
 
 
-if interacted {
-    lever_rotation = approach(lever_rotation,lever_rot_target,lever_spd);
-    if lever_rotation <= lever_rot_target/2 {
-        if activated != true {
-            audio_play_sound(snd_switch,1,false,1,0,0.9);
+
+
+    if interacted {
+        lever_rotation = approach(lever_rotation,lever_rot_target,lever_spd);
+        if lever_rotation <= lever_rot_target/2 {
+            if activated != true {
+                audio_play_sound(snd_switch,1,false,1,0,0.9);
+            }
+            activated = true;
         }
-        activated = true;
-    }
-} else {
-    lever_rotation = approach(lever_rotation,0,lever__return_spd);
-    if lever_rotation > lever_rot_target/2 {
-        if activated != false {
-            audio_play_sound(snd_switch,1,false,1,0,0.8);
+    } else {
+        lever_rotation = approach(lever_rotation,0,lever__return_spd);
+        if lever_rotation > lever_rot_target/2 {
+            if activated != false {
+                audio_play_sound(snd_switch,1,false,1,0,0.8);
+            }
+            activated = false;
         }
-        activated = false;
     }
-}
+
 
 if door != noone {
     if activated {
@@ -35,3 +38,4 @@ if player_exists() {
         interacter = noone;
     }
 }
+

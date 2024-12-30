@@ -54,3 +54,14 @@ retrievertimer = retrievetimermax;
 
 drone_ambience = audio_emitter_create();
 audio_falloff_set_model(audio_falloff_linear_distance);
+
+has_los = 0;
+
+drone_error = false;
+drone_error_message = "";
+
+drone_error_alpha = 0;
+drone_error_state = 0;
+
+drone_error_timermax = 1*60;
+drone_error_timer = drone_error_timermax;

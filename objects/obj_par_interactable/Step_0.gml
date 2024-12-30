@@ -48,17 +48,33 @@ if has_physics && !interacted {
     }
 }
 
+
 if player_exists() && instance_exists(obj_drone) {
     if global.player_state == playerstate.commanding {
         var inst = instance_position(mouse_x,mouse_y,obj_par_interactable)
+
         if inst != noone {
+            has_player_los = collision_line(inst.x, inst.y, obj_player.x, obj_player.y - 24, global.col, false, true);
             if interacter != obj_drone {
                 inst.flashing = true;
             }    
-            if input_check_pressed("interact") && obj_drone.drone_action_registered == false && obj_drone.holding_object == false    {
-                global.drone_state = dronestate.execute_action;
-                obj_drone.drone_target = inst;
-                obj_drone.drone_action_registered = true;
+
+            if input_check_pressed("interact") {
+                if obj_drone.drone_action_registered == false && obj_drone.holding_object == false{
+                     if has_player_los == noone {
+                        global.drone_state = dronestate.execute_action;
+                        obj_drone.drone_target = inst;
+                        obj_drone.drone_action_registered = true;
+                        audio_play_sound(drone_command,1,false);
+                    } else {
+                                        screenshake();
+                                        with obj_drone {
+                                            drone_error = true;
+                                            drone_error_message = "REQUIRES LINE OF SIGHT";
+                                        }
+                                    }
+
+                } 
             }
         } else {
             self.flashing = false;   
@@ -67,3 +83,4 @@ if player_exists() && instance_exists(obj_drone) {
         self.flashing = false; 
     }
 }
+

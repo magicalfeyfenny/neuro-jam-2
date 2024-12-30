@@ -24,6 +24,7 @@ if (pause) {
             paused_surface = -1;
             //quit
             room_goto(rm_init);
+            audio_stop_sound(wind);
             
         } 
     }
