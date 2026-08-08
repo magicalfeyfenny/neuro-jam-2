@@ -1,7 +1,9 @@
-# neuro-jam-2
+# Signals in the Wind
 
-neuro jam entry for https://itch.io/jam/neuro
+Neuro Jam 2 entry for https://itch.io/jam/neuro
 
-## building
+A 2D side-scrolling puzzle platformer where a friendly drone helps you
+
+## build
 
 this is a gamemaker project, use https://gamemaker.io to build
